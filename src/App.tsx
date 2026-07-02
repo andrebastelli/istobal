@@ -69,6 +69,30 @@ const FEATURED_PRODUCTS = [
   },
 ];
 
+const TESTIMONIALS = [
+  {
+    name: "João Silva",
+    role: "Gerente de Operações",
+    company: "AutoClean Brasil",
+    text: "A ISTOBAL aumentou nossa produtividade em 300%. Antes lavávamos 40 carros por dia, agora são 150. O investimento se pagou em apenas 14 meses.",
+    rating: 5,
+  },
+  {
+    name: "Maria Santos",
+    role: "Proprietária",
+    company: "Lava Express SP",
+    text: "Qualidade padronizada, menos reclamações e margem muito melhor por veículo. Meus clientes notam a diferença e voltam sempre.",
+    rating: 5,
+  },
+  {
+    name: "Carlos Oliveira",
+    role: "Diretor de Manutenção",
+    company: "Locadora Premium",
+    text: "O suporte técnico é excelente. Temos peças em estoque, técnicos preparados e a máquina praticamente não nos deixa na mão.",
+    rating: 5,
+  },
+];
+
 export default function App() {
   return (
     <>
@@ -80,6 +104,7 @@ export default function App() {
         <Pains />
         <Benefits />
         <VideoDemo />
+        <Testimonials />
         <HowItWorks />
         <FeaturedProducts />
         <Compare />
@@ -229,7 +254,7 @@ function Benefits() {
         <div className="max-w-2xl">
           <span className="eyebrow">A solução</span>
           <h2 className="mt-3 text-3xl md:text-4xl font-semibold tracking-tight">
-            A vantagem ISTOBAL para o seu negócio
+            Uma lavagem automatizada que une eficiência, tecnologia e rentabilidade.
           </h2>
         </div>
 
@@ -308,6 +333,57 @@ function VideoDemo() {
             <div className="text-3xl font-black text-primary mb-2">24/7</div>
             <p className="text-sm text-ink-soft">Operação contínua e confiável</p>
           </div>
+        </div>
+      </div>
+    </section>
+  );
+}
+
+function Testimonials() {
+  return (
+    <section className="py-20 md:py-28 bg-surface">
+      <div className="container-x">
+        <div className="max-w-2xl mb-16">
+          <span className="eyebrow">Histórias reais</span>
+          <h2 className="mt-3 text-3xl md:text-4xl">Ouça quem já transformou seu negócio</h2>
+          <p className="mt-4 text-lg text-ink-soft">
+            Proprietários e gestores de operações já aumentaram sua produtividade e lucratividade com a ISTOBAL.
+          </p>
+        </div>
+
+        <div className="grid md:grid-cols-3 gap-6">
+          {TESTIMONIALS.map((testimonial, idx) => (
+            <div
+              key={idx}
+              className="p-8 rounded-2xl bg-white border border-border shadow-sm hover:shadow-md transition-shadow"
+            >
+              <div className="flex gap-1 mb-4">
+                {[...Array(testimonial.rating)].map((_, i) => (
+                  <span key={i} className="text-primary text-lg">★</span>
+                ))}
+              </div>
+              
+              <p className="text-ink mb-6 leading-relaxed text-base">
+                &quot;{testimonial.text}&quot;
+              </p>
+
+              <div className="border-t border-border pt-4">
+                <div className="font-semibold text-ink">{testimonial.name}</div>
+                <div className="text-sm text-ink-soft">{testimonial.role}</div>
+                <div className="text-sm text-primary font-medium">{testimonial.company}</div>
+              </div>
+            </div>
+          ))}
+        </div>
+
+        <div className="mt-12 text-center">
+          <p className="text-ink-soft mb-4">Pronto para começar sua transformação?</p>
+          <a
+            href="#contato"
+            className="inline-block px-8 py-3 rounded-lg bg-primary text-white font-semibold hover:opacity-90 transition-opacity"
+          >
+            Solicite uma Consultoria
+          </a>
         </div>
       </div>
     </section>
