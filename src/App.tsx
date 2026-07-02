@@ -220,29 +220,44 @@ function Benefits() {
   return (
     <section id="beneficios" className="py-20 md:py-28 bg-surface">
       <div className="container-x">
+        
+        {/* Header */}
         <div className="max-w-2xl">
           <span className="eyebrow">A solução</span>
-          <h2 className="mt-3 text-3xl md:text-4xl">A vantagem ISTOBAL para o seu negócio</h2>
+          <h2 className="mt-3 text-3xl md:text-4xl font-semibold tracking-tight">
+            A vantagem ISTOBAL para o seu negócio
+          </h2>
         </div>
-        <div className="mt-12 grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
+
+        {/* Grid */}
+        <div className="mt-14 grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
           {BENEFITS.map((b, i) => (
-  <div key={i} className="flex items-start gap-4">
-    
-    <div className="flex items-center justify-center w-12 h-12 rounded-full bg-muted">
-      <img 
-        src={b.icon} 
-        alt={b.title} 
-        className="w-6 h-6 object-contain"
-      />
-    </div>
+            
+            <div
+              key={i}
+              className="group p-6 rounded-2xl bg-white/60 backdrop-blur border border-border hover:border-red-500/30 hover:shadow-lg transition-all duration-300"
+            >
+              
+              {/* Ícone */}
+              <div className="w-14 h-14 rounded-xl bg-gray-100 flex items-center justify-center mb-5 group-hover:bg-red-500/10 transition">
+                <img
+                  src={b.icon}
+                  alt={b.title}
+                  className="w-7 h-7 object-contain"
+                />
+              </div>
 
-    <div>
-      <h4 className="font-semibold">{b.title}</h4>
-      <p className="text-sm text-muted-foreground">{b.text}</p>
-    </div>
+              {/* Conteúdo */}
+              <h4 className="font-semibold text-base text-foreground">
+                {b.title}
+              </h4>
 
-  </div>
-))}
+              <p className="mt-2 text-sm text-muted-foreground leading-relaxed">
+                {b.text}
+              </p>
+
+            </div>
+          ))}
         </div>
       </div>
     </section>
