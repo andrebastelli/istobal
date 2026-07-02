@@ -183,7 +183,7 @@ function TLDR() {
   return (
     <section className="border-y border-border bg-ink text-white">
       <div className="container-x py-8 md:py-10 flex flex-col md:flex-row items-start md:items-center gap-4">
-        <span className="text-xs font-bold tracking-[0.2em] text-primary uppercase whitespace-nowrap">TL;DR</span>
+        
         <p className="text-base md:text-lg leading-relaxed">
           A ISTOBAL oferece soluções de lavagem automática que reduzem a dependência de mão
           de obra em até <strong className="text-white">80%</strong> e aumentam a margem de lucro por veículo lavado,
