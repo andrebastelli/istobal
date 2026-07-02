@@ -477,7 +477,7 @@ function validateCNPJ(cnpj: string) {
   return result === parseInt(digits.charAt(1));
 }
 
-function ContactForm() { "https://script.google.com/macros/s/AKfycbyEAdHIhGJGph3NFYIE_WXzjmpA8YwuZsQmwOmZ9gtxF0QdPCWNW97R4fxuRz413UTYHw/exec";
+function ContactForm() { 
   const [submitting, setSubmitting] = useState(false);
 
   async function onSubmit(e: FormEvent<HTMLFormElement>) {
@@ -514,9 +514,6 @@ function ContactForm() { "https://script.google.com/macros/s/AKfycbyEAdHIhGJGph3
 try {
   const res = await fetch(endpoint, {
     method: "POST",
-    headers: {
-      "Content-Type": "application/json",
-    },
     body: JSON.stringify(data),
   });
 
