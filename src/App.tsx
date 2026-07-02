@@ -108,6 +108,7 @@ export default function App() {
         <HowItWorks />
         <FeaturedProducts />
         <Compare />
+        <Differentials />
         <FAQSection />
         <ContactForm />
       </main>
@@ -532,6 +533,64 @@ function Compare() {
           </table>
         </div>
 
+      </div>
+    </section>
+  );
+}
+
+function Differentials() {
+  const differentials = [
+    {
+      title: "75 anos de experiência",
+      description: "Sete décadas desenvolvendo soluções inovadoras em limpeza veicular."
+    },
+    {
+      title: "Presença internacional",
+      description: "Presente em mais de 50 países com suporte técnico em todo o mundo."
+    },
+    {
+      title: "Tecnologia própria",
+      description: "Equipamentos com sistemas exclusivos protegidos por patentes."
+    },
+    {
+      title: "Inovação constante",
+      description: "Investimento contínuo em pesquisa e desenvolvimento de novas soluções."
+    },
+    {
+      title: "Assistência técnica especializada",
+      description: "Time de profissionais treinados e certificados disponível 24/7."
+    },
+    {
+      title: "Peças e suporte",
+      description: "Garantia de abastecimento de peças e manutenção por toda a vida útil."
+    }
+  ];
+
+  return (
+    <section className="py-20 md:py-28">
+      <div className="container-x">
+        <div className="max-w-3xl mb-16">
+          <span className="eyebrow">Por que escolher</span>
+          <h2 className="mt-3 text-3xl md:text-4xl">Por que escolher a Istobal</h2>
+          <p className="mt-4 text-lg text-ink-soft">
+            Décadas de experiência, tecnologia própria e compromisso com sua operação.
+          </p>
+        </div>
+
+        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+          {differentials.map((item, idx) => (
+            <div
+              key={idx}
+              className="p-8 rounded-2xl bg-surface border border-border hover:border-primary/50 transition-colors"
+            >
+              <div className="w-12 h-12 rounded-xl bg-primary/10 flex items-center justify-center mb-4">
+                <div className="text-2xl font-black text-primary">{idx + 1}</div>
+              </div>
+              <h3 className="text-xl font-bold text-ink mb-2">{item.title}</h3>
+              <p className="text-ink-soft leading-relaxed">{item.description}</p>
+            </div>
+          ))}
+        </div>
       </div>
     </section>
   );
