@@ -646,7 +646,13 @@ function Footer() {
     <footer className="bg-ink text-white/70 py-14">
       <div className="container-x grid md:grid-cols-3 gap-10">
         <div>
-          <div className="text-2xl font-black text-white">ISTOBAL <span className="text-primary">.</span></div>
+          <div className="flex items-center">
+            <img
+              src="/logo-istobal.png"
+              alt="ISTOBAL"
+              className="h-8 w-auto object-contain"
+            />
+          </div>
           <p className="mt-4 text-sm leading-relaxed">
             Líder global em soluções de lavagem automatizada de veículos.
             Presença em mais de 80 países.
