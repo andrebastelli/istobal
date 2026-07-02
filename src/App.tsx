@@ -1,5 +1,6 @@
 import { useEffect, useState, type FormEvent } from "react";
 import heroImg from "@/assets/hero-carwash.jpg";
+import PrivacyPolicy from "./PrivacyPolicy";
 
 const WHATSAPP_NUMBER = "5519935011062";
 const WHATSAPP_MSG = "Olá, quero entender melhor as soluções de lavagem automatizada da Istobal para o meu negócio.";
@@ -94,6 +95,33 @@ const TESTIMONIALS = [
 ];
 
 export default function App() {
+  const [currentPage, setCurrentPage] = useState<'home' | 'privacy'>('home');
+
+  useEffect(() => {
+    const handleHashChange = () => {
+      if (window.location.pathname === '/privacidade' || window.location.hash === '#privacidade') {
+        setCurrentPage('privacy');
+        window.scrollTo(0, 0);
+      } else {
+        setCurrentPage('home');
+      }
+    };
+
+    handleHashChange();
+    window.addEventListener('hashchange', handleHashChange);
+    return () => window.removeEventListener('hashchange', handleHashChange);
+  }, []);
+
+  if (currentPage === 'privacy') {
+    return (
+      <>
+        <a href="#conteudo" className="skip-link">Pular para o conteúdo</a>
+        <PrivacyPolicy />
+        <Footer />
+      </>
+    );
+  }
+
   return (
     <>
       <a href="#conteudo" className="skip-link">Pular para o conteúdo</a>
@@ -784,7 +812,7 @@ try {
               />
               <span className="text-sm text-ink-soft">
                 Concordo com a{" "}
-                <a href="#" className="text-primary hover:underline font-medium">
+                <a href="#privacidade" className="text-primary hover:underline font-medium">
                   política de privacidade
                 </a>
               </span>
