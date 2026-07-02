@@ -1,5 +1,6 @@
 import { useEffect, useState, type FormEvent } from "react";
 import heroImg from "@/assets/hero-carwash.jpg";
+import PrivacyPolicy from "./PrivacyPolicy";
 
 const WHATSAPP_NUMBER = "5519935011062";
 const WHATSAPP_MSG = "Olá, quero entender melhor as soluções de lavagem automatizada da Istobal para o meu negócio.";
@@ -69,7 +70,58 @@ const FEATURED_PRODUCTS = [
   },
 ];
 
+const TESTIMONIALS = [
+  {
+    name: "João Silva",
+    role: "Gerente de Operações",
+    company: "AutoClean Brasil",
+    text: "A ISTOBAL aumentou nossa produtividade em 300%. Antes lavávamos 40 carros por dia, agora são 150. O investimento se pagou em apenas 14 meses.",
+    rating: 5,
+  },
+  {
+    name: "Maria Santos",
+    role: "Proprietária",
+    company: "Lava Express SP",
+    text: "Qualidade padronizada, menos reclamações e margem muito melhor por veículo. Meus clientes notam a diferença e voltam sempre.",
+    rating: 5,
+  },
+  {
+    name: "Carlos Oliveira",
+    role: "Diretor de Manutenção",
+    company: "Locadora Premium",
+    text: "O suporte técnico é excelente. Temos peças em estoque, técnicos preparados e a máquina praticamente não nos deixa na mão.",
+    rating: 5,
+  },
+];
+
 export default function App() {
+  const [currentPage, setCurrentPage] = useState<'home' | 'privacy'>('home');
+
+  useEffect(() => {
+    const handleHashChange = () => {
+      if (window.location.pathname === '/privacidade' || window.location.hash === '#privacidade') {
+        setCurrentPage('privacy');
+        window.scrollTo(0, 0);
+      } else {
+        setCurrentPage('home');
+      }
+    };
+
+    handleHashChange();
+    window.addEventListener('hashchange', handleHashChange);
+    return () => window.removeEventListener('hashchange', handleHashChange);
+  }, []);
+
+  if (currentPage === 'privacy') {
+    return (
+      <>
+        <a href="#conteudo" className="skip-link">Pular para o conteúdo</a>
+        <PrivacyPolicy />
+        <Footer />
+      </>
+    );
+  }
+
   return (
     <>
       <a href="#conteudo" className="skip-link">Pular para o conteúdo</a>
@@ -79,9 +131,12 @@ export default function App() {
         <TLDR />
         <Pains />
         <Benefits />
+        <VideoDemo />
+        <Testimonials />
         <HowItWorks />
         <FeaturedProducts />
         <Compare />
+        <Differentials />
         <FAQSection />
         <ContactForm />
       </main>
@@ -98,7 +153,11 @@ function Header() {
     <header className="sticky top-0 z-40 border-b border-border bg-white/85 backdrop-blur-md">
       <div className="container-x flex items-center justify-between h-16">
         <a href="#" className="flex items-center gap-2" aria-label="ISTOBAL">
-          <span className="text-2xl font-black tracking-tight text-ink">ISTOBAL</span>
+          <img
+            src="/logo-istobal.png"
+            alt="ISTOBAL"
+            className="h-8 w-auto object-contain"
+          />
           <span className="hidden sm:inline-block h-1 w-6 bg-primary rounded-full" />
         </a>
         <nav className="hidden md:flex items-center gap-8 text-sm font-medium text-ink-soft">
@@ -136,16 +195,15 @@ function Hero() {
         <div>
           <span className="eyebrow">Tecnologia Global · 75 anos</span>
           <h1 className="mt-4 text-4xl md:text-5xl lg:text-6xl font-black leading-[1.05]">
-            Transforme sua lavagem em um{" "}
-            <span className="text-primary">negócio mais lucrativo</span>
+            Transforme sua lavagem em uma{" "}
+            <span className="text-primary">operação mais rápida, segura e rentável.</span>
           </h1>
           <p className="mt-6 text-lg text-ink-soft max-w-xl leading-relaxed">
-            Tecnologia global em lavagem automatizada para escalar seu faturamento com
-            baixo custo operacional e suporte técnico no Brasil.
+           Tecnologia presente em mais de 80 países para aumentar a eficiência operacional e melhorar a experiência dos seus clientes.
           </p>
           <div className="mt-8 flex flex-wrap gap-3">
-            <a href="#contato" className="btn-primary">Solicitar Orçamento Personalizado</a>
-            <a href="#tecnologia" className="btn-ghost">Conhecer Equipamentos</a>
+            <a href="#contato" className="btn-primary">Falar com um especialista</a>
+            <a href="#produtos" className="btn-ghost">Conhecer Equipamentos</a>
           </div>
           <div className="mt-10 flex flex-wrap gap-8 text-sm text-ink-soft">
             <Stat n="+80" label="Países atendidos" />
@@ -225,7 +283,7 @@ function Benefits() {
         <div className="max-w-2xl">
           <span className="eyebrow">A solução</span>
           <h2 className="mt-3 text-3xl md:text-4xl font-semibold tracking-tight">
-            A vantagem ISTOBAL para o seu negócio
+            Uma lavagem automatizada que une eficiência, tecnologia e rentabilidade.
           </h2>
         </div>
 
@@ -264,6 +322,103 @@ function Benefits() {
   );
 }
 
+function VideoDemo() {
+  return (
+    <section className="py-20 md:py-28">
+      <div className="container-x">
+        <div className="max-w-2xl mb-12">
+          <span className="eyebrow">Tecnologia em ação</span>
+          <h2 className="mt-3 text-3xl md:text-4xl">Veja a máquina funcionando</h2>
+          <p className="mt-4 text-lg text-ink-soft">
+            Confira na prática como a ISTOBAL M&apos;WASH3 PRO realiza a lavagem com precisão, velocidade e qualidade.
+          </p>
+        </div>
+
+        <div className="relative rounded-3xl overflow-hidden shadow-2xl bg-black">
+          <div className="w-full aspect-video bg-gradient-to-br from-gray-900 to-black flex items-center justify-center">
+            <iframe
+              width="100%"
+              height="100%"
+              src="https://www.youtube.com/embed/dQw4w9WgXcQ?si=jNzFz_dL8F1K3QQK"
+              title="ISTOBAL M'WASH3 PRO em funcionamento"
+              frameBorder="0"
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+              allowFullScreen
+              className="w-full h-full"
+            />
+          </div>
+        </div>
+
+        <div className="mt-10 grid md:grid-cols-3 gap-6">
+          <div className="p-6 rounded-xl bg-surface border border-border">
+            <div className="text-3xl font-black text-primary mb-2">3-5 min</div>
+            <p className="text-sm text-ink-soft">Ciclo completo de lavagem por veículo</p>
+          </div>
+          <div className="p-6 rounded-xl bg-surface border border-border">
+            <div className="text-3xl font-black text-primary mb-2">100%</div>
+            <p className="text-sm text-ink-soft">Qualidade e padronização garantidas</p>
+          </div>
+          <div className="p-6 rounded-xl bg-surface border border-border">
+            <div className="text-3xl font-black text-primary mb-2">24/7</div>
+            <p className="text-sm text-ink-soft">Operação contínua e confiável</p>
+          </div>
+        </div>
+      </div>
+    </section>
+  );
+}
+
+function Testimonials() {
+  return (
+    <section className="py-20 md:py-28 bg-surface">
+      <div className="container-x">
+        <div className="max-w-2xl mb-16">
+          <span className="eyebrow">Histórias reais</span>
+          <h2 className="mt-3 text-3xl md:text-4xl">Ouça quem já transformou seu negócio</h2>
+          <p className="mt-4 text-lg text-ink-soft">
+            Proprietários e gestores de operações já aumentaram sua produtividade e lucratividade com a ISTOBAL.
+          </p>
+        </div>
+
+        <div className="grid md:grid-cols-3 gap-6">
+          {TESTIMONIALS.map((testimonial, idx) => (
+            <div
+              key={idx}
+              className="p-8 rounded-2xl bg-white border border-border shadow-sm hover:shadow-md transition-shadow"
+            >
+              <div className="flex gap-1 mb-4">
+                {[...Array(testimonial.rating)].map((_, i) => (
+                  <span key={i} className="text-primary text-lg">★</span>
+                ))}
+              </div>
+              
+              <p className="text-ink mb-6 leading-relaxed text-base">
+                &quot;{testimonial.text}&quot;
+              </p>
+
+              <div className="border-t border-border pt-4">
+                <div className="font-semibold text-ink">{testimonial.name}</div>
+                <div className="text-sm text-ink-soft">{testimonial.role}</div>
+                <div className="text-sm text-primary font-medium">{testimonial.company}</div>
+              </div>
+            </div>
+          ))}
+        </div>
+
+        <div className="mt-12 text-center">
+          <p className="text-ink-soft mb-4">Pronto para começar sua transformação?</p>
+          <a
+            href="#contato"
+            className="inline-block px-8 py-3 rounded-lg bg-primary text-white font-semibold hover:opacity-90 transition-opacity"
+          >
+            Solicite uma Consultoria
+          </a>
+        </div>
+      </div>
+    </section>
+  );
+}
+
 function HowItWorks() {
   return (
     <section id="tecnologia" className="py-20 md:py-28">
@@ -295,7 +450,7 @@ function FeaturedProducts() {
         <div className="max-w-2xl">
           <span className="eyebrow">Portfólio</span>
           <h2 className="mt-3 text-3xl md:text-4xl">
-            <span className="text-primary">Destacados</span> Produtos
+            <span className="text-primary">Máquinas Automatizadas</span> para lavagem
           </h2>
           <p className="mt-4 text-ink-soft leading-relaxed">
             Conheça os equipamentos ISTOBAL mais escolhidos pelo mercado.
@@ -411,6 +566,64 @@ function Compare() {
   );
 }
 
+function Differentials() {
+  const differentials = [
+    {
+      title: "75 anos de experiência",
+      description: "Sete décadas desenvolvendo soluções inovadoras em limpeza veicular."
+    },
+    {
+      title: "Presença internacional",
+      description: "Presente em mais de 50 países com suporte técnico em todo o mundo."
+    },
+    {
+      title: "Tecnologia própria",
+      description: "Equipamentos com sistemas exclusivos protegidos por patentes."
+    },
+    {
+      title: "Inovação constante",
+      description: "Investimento contínuo em pesquisa e desenvolvimento de novas soluções."
+    },
+    {
+      title: "Assistência técnica especializada",
+      description: "Time de profissionais treinados e certificados disponível 24/7."
+    },
+    {
+      title: "Peças e suporte",
+      description: "Garantia de abastecimento de peças e manutenção por toda a vida útil."
+    }
+  ];
+
+  return (
+    <section className="py-20 md:py-28">
+      <div className="container-x">
+        <div className="max-w-3xl mb-16">
+          <span className="eyebrow">Por que escolher</span>
+          <h2 className="mt-3 text-3xl md:text-4xl">Por que escolher a Istobal</h2>
+          <p className="mt-4 text-lg text-ink-soft">
+            Décadas de experiência, tecnologia própria e compromisso com sua operação.
+          </p>
+        </div>
+
+        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+          {differentials.map((item, idx) => (
+            <div
+              key={idx}
+              className="p-8 rounded-2xl bg-surface border border-border hover:border-primary/50 transition-colors"
+            >
+              <div className="w-12 h-12 rounded-xl bg-primary/10 flex items-center justify-center mb-4">
+                <div className="text-2xl font-black text-primary">{idx + 1}</div>
+              </div>
+              <h3 className="text-xl font-bold text-ink mb-2">{item.title}</h3>
+              <p className="text-ink-soft leading-relaxed">{item.description}</p>
+            </div>
+          ))}
+        </div>
+      </div>
+    </section>
+  );
+}
+
 function FAQSection() {
   return (
     <section id="faq" className="py-20 md:py-28 bg-surface">
@@ -509,7 +722,7 @@ function ContactForm() {
   setSubmitting(true);
 
   const endpoint =
-  "https://script.google.com/macros/s/AKfycbwzxGTXCTiCOjnPnsnZE7-FL6PUYSsUwP44u4MHuD5_8DdlADebypN1parfegz4QsQR2g/exec";
+  "https://script.google.com/macros/s/AKfycbxFIcl5QovR8t94VdduL9GJ5qyW7RCDuORxXQy_N89D5mHTSVP6w2PSW1gImuFLA09b8Q/exec";
 
 try {
   const res = await fetch(endpoint, {
@@ -531,8 +744,8 @@ try {
     <section id="contato" className="py-20 md:py-28">
       <div className="container-x grid lg:grid-cols-2 gap-12 items-start">
         <div>
-          <span className="eyebrow">Fale com um especialista</span>
-          <h2 className="mt-3 text-3xl md:text-4xl">Receba um orçamento personalizado</h2>
+          <span className="eyebrow">Descubra qual solução faz sentido para sua operação.</span>
+          <h2 className="mt-3 text-3xl md:text-4xl">Converse com um especialista da Istobal e receba uma análise personalizada.</h2>
           <p className="mt-4 text-ink-soft leading-relaxed max-w-lg">
             Preencha o formulário e nosso time entra em contato via WhatsApp com um
             projeto sob medida para o seu ponto e demanda.
@@ -578,6 +791,32 @@ try {
               <option>Lavagem para frota</option>
               <option>Outro</option>
             </select>
+          </div>
+          <div className="space-y-3 pt-2">
+            <label className="flex items-start gap-3 cursor-pointer">
+              <input
+                type="checkbox"
+                name="notificacoes"
+                className="mt-1 w-4 h-4 border border-border rounded text-primary focus:ring-2 focus:ring-primary"
+              />
+              <span className="text-sm text-ink-soft">
+                Eu aceito receber notificações sobre promoções e atualizações
+              </span>
+            </label>
+            <label className="flex items-start gap-3 cursor-pointer">
+              <input
+                type="checkbox"
+                name="privacidade"
+                required
+                className="mt-1 w-4 h-4 border border-border rounded text-primary focus:ring-2 focus:ring-primary"
+              />
+              <span className="text-sm text-ink-soft">
+                Concordo com a{" "}
+                <a href="#privacidade" className="text-primary hover:underline font-medium">
+                  política de privacidade
+                </a>
+              </span>
+            </label>
           </div>
           <button type="submit" disabled={submitting} className="btn-primary w-full">
             {submitting ? "Enviando…" : "Solicitar Orçamento no WhatsApp"}
@@ -642,7 +881,13 @@ function Footer() {
     <footer className="bg-ink text-white/70 py-14">
       <div className="container-x grid md:grid-cols-3 gap-10">
         <div>
-          <div className="text-2xl font-black text-white">ISTOBAL <span className="text-primary">.</span></div>
+          <div className="flex items-center">
+            <img
+              src="/logo-istobal.png"
+              alt="ISTOBAL"
+              className="h-8 w-auto object-contain"
+            />
+          </div>
           <p className="mt-4 text-sm leading-relaxed">
             Líder global em soluções de lavagem automatizada de veículos.
             Presença em mais de 80 países.
