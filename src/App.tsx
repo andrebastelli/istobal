@@ -290,29 +290,48 @@ function FeaturedProducts() {
   return (
     <section id="produtos" className="py-20 md:py-28 bg-surface">
       <div className="container-x">
+
+        {/* Header */}
         <div className="max-w-2xl">
           <span className="eyebrow">Portfólio</span>
           <h2 className="mt-3 text-3xl md:text-4xl">
             <span className="text-primary">Destacados</span> Produtos
           </h2>
           <p className="mt-4 text-ink-soft leading-relaxed">
-            Conheça os equipamentos ISTOBAL mais escolhidos pelo mercado — tecnologia
-            de ponta com foco em produtividade, sustentabilidade e rentabilidade.
+            Conheça os equipamentos ISTOBAL mais escolhidos pelo mercado.
           </p>
         </div>
-        <div className="mt-12 grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
+
+        {/* Grid */}
+        <div className="mt-16 grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
           {FEATURED_PRODUCTS.map((p) => (
-            <article key={p.name} className="card-lift flex flex-col">
-              <div className="aspect-square w-full bg-white rounded-lg overflow-hidden flex items-center justify-center p-4">
+            
+            <article
+              key={p.name}
+              className="group rounded-2xl overflow-hidden bg-white border border-border hover:shadow-2xl transition-all duration-300"
+            >
+              
+              {/* IMAGEM GIGANTE */}
+              <div className="w-full h-80 bg-gray-50 flex items-center justify-center p-4">
                 <img
                   src={p.img}
                   alt={p.name}
                   loading="lazy"
-                  className="max-h-full max-w-full object-contain"
+                  className="h-full w-full object-contain transition-transform duration-500 group-hover:scale-110"
                 />
               </div>
-              <h3 className="mt-5 text-lg font-bold">{p.name}</h3>
-              <p className="mt-2 text-sm text-ink-soft leading-relaxed">{p.desc}</p>
+
+              {/* TEXTO MINIMIZADO */}
+              <div className="p-4">
+                <h3 className="text-sm font-semibold text-foreground">
+                  {p.name}
+                </h3>
+
+                <p className="mt-1 text-xs text-ink-soft leading-snug line-clamp-2">
+                  {p.desc}
+                </p>
+              </div>
+
             </article>
           ))}
         </div>
