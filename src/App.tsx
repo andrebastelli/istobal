@@ -98,7 +98,11 @@ function Header() {
     <header className="sticky top-0 z-40 border-b border-border bg-white/85 backdrop-blur-md">
       <div className="container-x flex items-center justify-between h-16">
         <a href="#" className="flex items-center gap-2" aria-label="ISTOBAL">
-          <span className="text-2xl font-black tracking-tight text-ink">ISTOBAL</span>
+          <img
+            src="/logo-istobal.png"
+            alt="ISTOBAL"
+            className="h-8 w-auto object-contain"
+          />
           <span className="hidden sm:inline-block h-1 w-6 bg-primary rounded-full" />
         </a>
         <nav className="hidden md:flex items-center gap-8 text-sm font-medium text-ink-soft">
