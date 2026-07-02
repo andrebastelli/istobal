@@ -141,16 +141,15 @@ function Hero() {
         <div>
           <span className="eyebrow">Tecnologia Global · 75 anos</span>
           <h1 className="mt-4 text-4xl md:text-5xl lg:text-6xl font-black leading-[1.05]">
-            Transforme sua lavagem em um{" "}
-            <span className="text-primary">negócio mais lucrativo</span>
+            Transforme sua lavagem em uma{" "}
+            <span className="text-primary">operação mais rápida, segura e rentável.</span>
           </h1>
           <p className="mt-6 text-lg text-ink-soft max-w-xl leading-relaxed">
-            Tecnologia global em lavagem automatizada para escalar seu faturamento com
-            baixo custo operacional e suporte técnico no Brasil.
+           Tecnologia presente em mais de 80 países para aumentar a eficiência operacional e melhorar a experiência dos seus clientes.
           </p>
           <div className="mt-8 flex flex-wrap gap-3">
-            <a href="#contato" className="btn-primary">Solicitar Orçamento Personalizado</a>
-            <a href="#tecnologia" className="btn-ghost">Conhecer Equipamentos</a>
+            <a href="#contato" className="btn-primary">Falar com um especialista</a>
+            <a href="#produtos" className="btn-ghost">Conhecer Equipamentos</a>
           </div>
           <div className="mt-10 flex flex-wrap gap-8 text-sm text-ink-soft">
             <Stat n="+80" label="Países atendidos" />
@@ -346,7 +345,7 @@ function FeaturedProducts() {
         <div className="max-w-2xl">
           <span className="eyebrow">Portfólio</span>
           <h2 className="mt-3 text-3xl md:text-4xl">
-            <span className="text-primary">Destacados</span> Produtos
+            <span className="text-primary">Máquinas Automatizadas</span> para lavagem
           </h2>
           <p className="mt-4 text-ink-soft leading-relaxed">
             Conheça os equipamentos ISTOBAL mais escolhidos pelo mercado.
