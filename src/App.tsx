@@ -6,10 +6,10 @@ const WHATSAPP_MSG = "Olá, quero entender melhor as soluções de lavagem autom
 const WHATSAPP_URL = `https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(WHATSAPP_MSG)}`;
 
 const BENEFITS = [
-  { icon: Zap, title: "Alta Performance", text: "Lave mais veículos por hora com ciclos rápidos e consistentes." },
-  { icon: TrendingUp, title: "ROI Acelerado", text: "Retorno do investimento em meses graças à margem por veículo." },
-  { icon: Wrench, title: "Tecnologia Própria", text: "Engenharia europeia com peças e software desenvolvidos pela ISTOBAL." },
-  { icon: Flag, title: "Suporte Nacional", text: "Assistência técnica, peças e treinamento com equipe no Brasil." },
+  { icon: "/alta-performance.png", title: "Alta Performance", text: "Lave mais veículos por hora com ciclos rápidos e consistentes." },
+  { icon: "/roi-acelerado.png", title: "ROI Acelerado", text: "Retorno do investimento em meses graças à margem por veículo." },
+  { icon: "/tecnologia-propria.png", title: "Tecnologia Própria", text: "Engenharia europeia com peças e software desenvolvidos pela ISTOBAL." },
+  { icon: "/suporte-nacional.png", title: "Suporte Nacional", text: "Assistência técnica, peças e treinamento com equipe no Brasil." },
 ];
 
 const PAINS = [
