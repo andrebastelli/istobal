@@ -433,30 +433,101 @@ function FAQSection() {
   );
 }
 
-function ContactForm() {
+function validateWhatsApp(value: string) {
+  const clean = value.replace(/\D/g, "");
+  return /^[1-9]{2}9\d{8}$/.test(clean);
+}
+
+function validateEmail(value: string) {
+  return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(value);
+}
+
+function validateCNPJ(cnpj: string) {
+  cnpj = cnpj.replace(/\D/g, "");
+
+  if (cnpj.length !== 14) return false;
+  if (/^(\d)\1+$/.test(cnpj)) return false;
+
+  let size = cnpj.length - 2;
+  let numbers = cnpj.substring(0, size);
+  let digits = cnpj.substring(size);
+
+  let sum = 0;
+  let pos = size - 7;
+
+  for (let i = size; i >= 1; i--) {
+    sum += parseInt(numbers.charAt(size - i)) * pos--;
+    if (pos < 2) pos = 9;
+  }
+
+  let result = sum % 11 < 2 ? 0 : 11 - (sum % 11);
+  if (result !== parseInt(digits.charAt(0))) return false;
+
+  size = size + 1;
+  numbers = cnpj.substring(0, size);
+  sum = 0;
+  pos = size - 7;
+
+  for (let i = size; i >= 1; i--) {
+    sum += parseInt(numbers.charAt(size - i)) * pos--;
+    if (pos < 2) pos = 9;
+  }
+
+  result = sum % 11 < 2 ? 0 : 11 - (sum % 11);
+  return result === parseInt(digits.charAt(1));
+}
+
+function ContactForm() { "https://script.google.com/macros/s/AKfycbyS4zlOox3x-011moAcDw9FhGPqnKGpKc8tzcRBxlpVkwgqCx3aYEswcGkMMG1iS0W0CQ/exec";
   const [submitting, setSubmitting] = useState(false);
 
   async function onSubmit(e: FormEvent<HTMLFormElement>) {
-    e.preventDefault();
-    setSubmitting(true);
-    const form = e.currentTarget;
-    const data = Object.fromEntries(new FormData(form).entries());
-    const endpoint = import.meta.env.VITE_FORM_ENDPOINT as string | undefined;
+  e.preventDefault();
 
-    if (endpoint) {
-      try {
-        await fetch(endpoint, {
-          method: "POST",
-          mode: "no-cors",
-          body: JSON.stringify(data),
-        });
-      } catch {
-        /* noop — segue para o WhatsApp mesmo se o endpoint falhar */
-      }
-    }
+  const form = e.currentTarget;
+  const data = Object.fromEntries(new FormData(form).entries());
 
-    window.location.href = WHATSAPP_URL;
+  const whatsapp = String(data.whatsapp);
+  const email = String(data.email);
+  const cnpj = String(data.cnpj);
+
+  // Validações
+  if (!validateWhatsApp(whatsapp)) {
+    alert("WhatsApp inválido. Use 11 números.");
+    return;
   }
+
+  if (!validateEmail(email)) {
+    alert("E-mail inválido.");
+    return;
+  }
+
+  if (cnpj && !validateCNPJ(cnpj)) {
+    alert("CNPJ inválido.");
+    return;
+  }
+
+  setSubmitting(true);
+
+  const endpoint =
+  "https://script.google.com/macros/s/AKfycbyS4zlOox3x-011moAcDw9FhGPqnKGpKc8tzcRBxlpVkwgqCx3aYEswcGkMMG1iS0W0CQ/exec";
+
+try {
+  const res = await fetch(endpoint, {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json",
+    },
+    body: JSON.stringify(data),
+  });
+
+  const result = await res.text(); // ou res.json()
+  console.log(result);
+} catch (err) {
+  console.error(err);
+}
+
+  window.location.href = WHATSAPP_URL;
+}
 
   return (
     <section id="contato" className="py-20 md:py-28">
