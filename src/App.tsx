@@ -344,33 +344,68 @@ function Compare() {
   return (
     <section id="suporte" className="py-20 md:py-28 bg-ink text-white">
       <div className="container-x">
+
+        {/* Header */}
         <div className="max-w-2xl">
           <span className="eyebrow">Comparativo</span>
-          <h2 className="mt-3 text-3xl md:text-4xl text-white">ISTOBAL vs. Lavagem Manual</h2>
+          <h2 className="mt-3 text-3xl md:text-4xl text-white">
+            ISTOBAL vs. Lavagem Manual
+          </h2>
           <p className="mt-4 text-white/70">
             Uma decisão simples quando você compara os números lado a lado.
           </p>
         </div>
-        <div className="mt-10 overflow-hidden rounded-xl border border-white/10">
+
+        {/* Tabela */}
+        <div className="mt-12 overflow-hidden rounded-2xl border border-white/10">
           <table className="w-full text-left">
-            <thead className="bg-white/5">
-              <tr>
-                <th className="p-4 text-xs uppercase tracking-widest text-white/60">Critério</th>
-                <th className="p-4 text-xs uppercase tracking-widest text-primary">ISTOBAL</th>
-                <th className="p-4 text-xs uppercase tracking-widest text-white/60">Manual</th>
+
+            {/* Cabeçalho */}
+            <thead>
+              <tr className="bg-white/5">
+                <th className="p-5 text-xs uppercase tracking-widest text-white/50">
+                  Critério
+                </th>
+
+                {/* ISTOBAL DESTACADO */}
+                <th className="p-5 text-xs uppercase tracking-widest text-red-500 bg-red-500/10 border-x border-red-500/20">
+                  ISTOBAL
+                </th>
+
+                <th className="p-5 text-xs uppercase tracking-widest text-white/40">
+                  Manual
+                </th>
               </tr>
             </thead>
+
+            {/* Conteúdo */}
             <tbody>
-              {COMPARE.map((row) => (
-                <tr key={row.label} className="border-t border-white/10">
-                  <td className="p-4 font-medium">{row.label}</td>
-                  <td className="p-4 text-white font-semibold">{row.istobal}</td>
-                  <td className="p-4 text-white/50">{row.manual}</td>
+              {COMPARE.map((row, i) => (
+                <tr
+                  key={row.label}
+                  className={`border-t border-white/10 ${
+                    i % 2 === 0 ? "bg-white/[0.02]" : ""
+                  }`}
+                >
+                  <td className="p-5 font-medium text-white/80">
+                    {row.label}
+                  </td>
+
+                  {/* COLUNA ISTOBAL COM DESTAQUE */}
+                  <td className="p-5 font-semibold text-white bg-red-500/5 border-x border-red-500/10">
+                    {row.istobal}
+                  </td>
+
+                  {/* MANUAL MAIS FRACO */}
+                  <td className="p-5 text-white/40 line-through">
+                    {row.manual}
+                  </td>
                 </tr>
               ))}
             </tbody>
           </table>
         </div>
+
       </div>
     </section>
   );
