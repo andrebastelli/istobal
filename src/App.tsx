@@ -716,8 +716,8 @@ try {
     <section id="contato" className="py-20 md:py-28">
       <div className="container-x grid lg:grid-cols-2 gap-12 items-start">
         <div>
-          <span className="eyebrow">Fale com um especialista</span>
-          <h2 className="mt-3 text-3xl md:text-4xl">Receba um orçamento personalizado</h2>
+          <span className="eyebrow">Descubra qual solução faz sentido para sua operação.</span>
+          <h2 className="mt-3 text-3xl md:text-4xl">Converse com um especialista da Istobal e receba uma análise personalizada.</h2>
           <p className="mt-4 text-ink-soft leading-relaxed max-w-lg">
             Preencha o formulário e nosso time entra em contato via WhatsApp com um
             projeto sob medida para o seu ponto e demanda.
@@ -763,6 +763,32 @@ try {
               <option>Lavagem para frota</option>
               <option>Outro</option>
             </select>
+          </div>
+          <div className="space-y-3 pt-2">
+            <label className="flex items-start gap-3 cursor-pointer">
+              <input
+                type="checkbox"
+                name="notificacoes"
+                className="mt-1 w-4 h-4 border border-border rounded text-primary focus:ring-2 focus:ring-primary"
+              />
+              <span className="text-sm text-ink-soft">
+                Eu aceito receber notificações sobre promoções e atualizações
+              </span>
+            </label>
+            <label className="flex items-start gap-3 cursor-pointer">
+              <input
+                type="checkbox"
+                name="privacidade"
+                required
+                className="mt-1 w-4 h-4 border border-border rounded text-primary focus:ring-2 focus:ring-primary"
+              />
+              <span className="text-sm text-ink-soft">
+                Concordo com a{" "}
+                <a href="#" className="text-primary hover:underline font-medium">
+                  política de privacidade
+                </a>
+              </span>
+            </label>
           </div>
           <button type="submit" disabled={submitting} className="btn-primary w-full">
             {submitting ? "Enviando…" : "Solicitar Orçamento no WhatsApp"}
