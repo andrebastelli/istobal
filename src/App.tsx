@@ -225,13 +225,24 @@ function Benefits() {
           <h2 className="mt-3 text-3xl md:text-4xl">A vantagem ISTOBAL para o seu negócio</h2>
         </div>
         <div className="mt-12 grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
-          {BENEFITS.map((b) => (
-            <div key={b.title} className="card-lift">
-              <div className="text-3xl mb-4" aria-hidden>{b.icon}</div>
-              <h3 className="text-lg font-bold">{b.title}</h3>
-              <p className="mt-2 text-sm text-ink-soft leading-relaxed">{b.text}</p>
-            </div>
-          ))}
+          {BENEFITS.map((b, i) => (
+  <div key={i} className="flex items-start gap-4">
+    
+    <div className="flex items-center justify-center w-12 h-12 rounded-full bg-muted">
+      <img 
+        src={b.icon} 
+        alt={b.title} 
+        className="w-6 h-6 object-contain"
+      />
+    </div>
+
+    <div>
+      <h4 className="font-semibold">{b.title}</h4>
+      <p className="text-sm text-muted-foreground">{b.text}</p>
+    </div>
+
+  </div>
+))}
         </div>
       </div>
     </section>
