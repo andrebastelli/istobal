@@ -539,7 +539,15 @@ function Field({ name, label, type = "text", required }: { name: string; label: 
   );
 }
 
-function InfoRow({ icon, label, value }) {
+function InfoRow({
+  icon,
+  label,
+  value,
+}: {
+  icon: string;
+  label: string;
+  value: string;
+}) {
   return (
     <div className="flex items-center gap-3">
       
