@@ -6,10 +6,10 @@ const WHATSAPP_MSG = "Olá, quero entender melhor as soluções de lavagem autom
 const WHATSAPP_URL = `https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(WHATSAPP_MSG)}`;
 
 const BENEFITS = [
-  { icon: "⚡", title: "Alta Performance", text: "Lave mais veículos por hora com ciclos rápidos e consistentes." },
-  { icon: "📈", title: "ROI Acelerado", text: "Retorno do investimento em meses graças à margem por veículo." },
-  { icon: "🛠️", title: "Tecnologia Própria", text: "Engenharia europeia com peças e software desenvolvidos pela ISTOBAL." },
-  { icon: "🇧🇷", title: "Suporte Nacional", text: "Assistência técnica, peças e treinamento com equipe no Brasil." },
+  { icon: "/alta-performance.png", title: "Alta Performance", text: "Lave mais veículos por hora com ciclos rápidos e consistentes." },
+  { icon: "/roi-acelerado.png", title: "ROI Acelerado", text: "Retorno do investimento em meses graças à margem por veículo." },
+  { icon: "/tecnologia-propria.png", title: "Tecnologia Própria", text: "Engenharia europeia com peças e software desenvolvidos pela ISTOBAL." },
+  { icon: "/suporte-nacional.png", title: "Suporte Nacional", text: "Assistência técnica, peças e treinamento com equipe no Brasil." },
 ];
 
 const PAINS = [
@@ -220,16 +220,42 @@ function Benefits() {
   return (
     <section id="beneficios" className="py-20 md:py-28 bg-surface">
       <div className="container-x">
+        
+        {/* Header */}
         <div className="max-w-2xl">
           <span className="eyebrow">A solução</span>
-          <h2 className="mt-3 text-3xl md:text-4xl">A vantagem ISTOBAL para o seu negócio</h2>
+          <h2 className="mt-3 text-3xl md:text-4xl font-semibold tracking-tight">
+            A vantagem ISTOBAL para o seu negócio
+          </h2>
         </div>
-        <div className="mt-12 grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
-          {BENEFITS.map((b) => (
-            <div key={b.title} className="card-lift">
-              <div className="text-3xl mb-4" aria-hidden>{b.icon}</div>
-              <h3 className="text-lg font-bold">{b.title}</h3>
-              <p className="mt-2 text-sm text-ink-soft leading-relaxed">{b.text}</p>
+
+        {/* Grid */}
+        <div className="mt-14 grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
+          {BENEFITS.map((b, i) => (
+            
+            <div
+              key={i}
+              className="group p-6 rounded-2xl bg-white/60 backdrop-blur border border-border hover:border-red-500/30 hover:shadow-lg transition-all duration-300"
+            >
+              
+              {/* Ícone */}
+              <div className="w-14 h-14 rounded-xl bg-gray-100 flex items-center justify-center mb-5 group-hover:bg-red-500/10 transition">
+                <img
+                  src={b.icon}
+                  alt={b.title}
+                  className="w-7 h-7 object-contain"
+                />
+              </div>
+
+              {/* Conteúdo */}
+              <h4 className="font-semibold text-base text-foreground">
+                {b.title}
+              </h4>
+
+              <p className="mt-2 text-sm text-muted-foreground leading-relaxed">
+                {b.text}
+              </p>
+
             </div>
           ))}
         </div>
@@ -264,29 +290,48 @@ function FeaturedProducts() {
   return (
     <section id="produtos" className="py-20 md:py-28 bg-surface">
       <div className="container-x">
+
+        {/* Header */}
         <div className="max-w-2xl">
           <span className="eyebrow">Portfólio</span>
           <h2 className="mt-3 text-3xl md:text-4xl">
             <span className="text-primary">Destacados</span> Produtos
           </h2>
           <p className="mt-4 text-ink-soft leading-relaxed">
-            Conheça os equipamentos ISTOBAL mais escolhidos pelo mercado — tecnologia
-            de ponta com foco em produtividade, sustentabilidade e rentabilidade.
+            Conheça os equipamentos ISTOBAL mais escolhidos pelo mercado.
           </p>
         </div>
-        <div className="mt-12 grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
+
+        {/* Grid */}
+        <div className="mt-16 grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
           {FEATURED_PRODUCTS.map((p) => (
-            <article key={p.name} className="card-lift flex flex-col">
-              <div className="aspect-square w-full bg-white rounded-lg overflow-hidden flex items-center justify-center p-4">
+            
+            <article
+              key={p.name}
+              className="group rounded-2xl overflow-hidden bg-white border border-border hover:shadow-2xl transition-all duration-300"
+            >
+              
+              {/* IMAGEM GIGANTE */}
+              <div className="w-full h-80 bg-gray-50 flex items-center justify-center p-4">
                 <img
                   src={p.img}
                   alt={p.name}
                   loading="lazy"
-                  className="max-h-full max-w-full object-contain"
+                  className="h-full w-full object-contain transition-transform duration-500 group-hover:scale-110"
                 />
               </div>
-              <h3 className="mt-5 text-lg font-bold">{p.name}</h3>
-              <p className="mt-2 text-sm text-ink-soft leading-relaxed">{p.desc}</p>
+
+              {/* TEXTO MINIMIZADO */}
+              <div className="p-4">
+                <h3 className="text-sm font-semibold text-foreground">
+                  {p.name}
+                </h3>
+
+                <p className="mt-1 text-xs text-ink-soft leading-snug line-clamp-2">
+                  {p.desc}
+                </p>
+              </div>
+
             </article>
           ))}
         </div>
@@ -299,33 +344,68 @@ function Compare() {
   return (
     <section id="suporte" className="py-20 md:py-28 bg-ink text-white">
       <div className="container-x">
+
+        {/* Header */}
         <div className="max-w-2xl">
           <span className="eyebrow">Comparativo</span>
-          <h2 className="mt-3 text-3xl md:text-4xl text-white">ISTOBAL vs. Lavagem Manual</h2>
+          <h2 className="mt-3 text-3xl md:text-4xl text-white">
+            ISTOBAL vs. Lavagem Manual
+          </h2>
           <p className="mt-4 text-white/70">
             Uma decisão simples quando você compara os números lado a lado.
           </p>
         </div>
-        <div className="mt-10 overflow-hidden rounded-xl border border-white/10">
+
+        {/* Tabela */}
+        <div className="mt-12 overflow-hidden rounded-2xl border border-white/10">
           <table className="w-full text-left">
-            <thead className="bg-white/5">
-              <tr>
-                <th className="p-4 text-xs uppercase tracking-widest text-white/60">Critério</th>
-                <th className="p-4 text-xs uppercase tracking-widest text-primary">ISTOBAL</th>
-                <th className="p-4 text-xs uppercase tracking-widest text-white/60">Manual</th>
+
+            {/* Cabeçalho */}
+            <thead>
+              <tr className="bg-white/5">
+                <th className="p-5 text-xs uppercase tracking-widest text-white/50">
+                  Critério
+                </th>
+
+                {/* ISTOBAL DESTACADO */}
+                <th className="p-5 text-xs uppercase tracking-widest text-red-500 bg-red-500/10 border-x border-red-500/20">
+                  ISTOBAL
+                </th>
+
+                <th className="p-5 text-xs uppercase tracking-widest text-white/40">
+                  Manual
+                </th>
               </tr>
             </thead>
+
+            {/* Conteúdo */}
             <tbody>
-              {COMPARE.map((row) => (
-                <tr key={row.label} className="border-t border-white/10">
-                  <td className="p-4 font-medium">{row.label}</td>
-                  <td className="p-4 text-white font-semibold">{row.istobal}</td>
-                  <td className="p-4 text-white/50">{row.manual}</td>
+              {COMPARE.map((row, i) => (
+                <tr
+                  key={row.label}
+                  className={`border-t border-white/10 ${
+                    i % 2 === 0 ? "bg-white/[0.02]" : ""
+                  }`}
+                >
+                  <td className="p-5 font-medium text-white/80">
+                    {row.label}
+                  </td>
+
+                  {/* COLUNA ISTOBAL COM DESTAQUE */}
+                  <td className="p-5 font-semibold text-white bg-red-500/5 border-x border-red-500/10">
+                    {row.istobal}
+                  </td>
+
+                  {/* MANUAL MAIS FRACO */}
+                  <td className="p-5 text-white/40 line-through">
+                    {row.manual}
+                  </td>
                 </tr>
               ))}
             </tbody>
           </table>
         </div>
+
       </div>
     </section>
   );
@@ -353,30 +433,99 @@ function FAQSection() {
   );
 }
 
-function ContactForm() {
+function validateWhatsApp(value: string) {
+  const clean = value.replace(/\D/g, "");
+  return /^[1-9]{2}9\d{8}$/.test(clean);
+}
+
+function validateEmail(value: string) {
+  return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(value);
+}
+
+function validateCNPJ(cnpj: string) {
+  cnpj = cnpj.replace(/\D/g, "");
+
+  if (cnpj.length !== 14) return false;
+  if (/^(\d)\1+$/.test(cnpj)) return false;
+
+  let size = cnpj.length - 2;
+  let numbers = cnpj.substring(0, size);
+  let digits = cnpj.substring(size);
+
+  let sum = 0;
+  let pos = size - 7;
+
+  for (let i = size; i >= 1; i--) {
+    sum += parseInt(numbers.charAt(size - i)) * pos--;
+    if (pos < 2) pos = 9;
+  }
+
+  let result = sum % 11 < 2 ? 0 : 11 - (sum % 11);
+  if (result !== parseInt(digits.charAt(0))) return false;
+
+  size = size + 1;
+  numbers = cnpj.substring(0, size);
+  sum = 0;
+  pos = size - 7;
+
+  for (let i = size; i >= 1; i--) {
+    sum += parseInt(numbers.charAt(size - i)) * pos--;
+    if (pos < 2) pos = 9;
+  }
+
+  result = sum % 11 < 2 ? 0 : 11 - (sum % 11);
+  return result === parseInt(digits.charAt(1));
+}
+
+function ContactForm() { 
   const [submitting, setSubmitting] = useState(false);
 
   async function onSubmit(e: FormEvent<HTMLFormElement>) {
-    e.preventDefault();
-    setSubmitting(true);
-    const form = e.currentTarget;
-    const data = Object.fromEntries(new FormData(form).entries());
-    const endpoint = import.meta.env.VITE_FORM_ENDPOINT as string | undefined;
+  e.preventDefault();
 
-    if (endpoint) {
-      try {
-        await fetch(endpoint, {
-          method: "POST",
-          mode: "no-cors",
-          body: JSON.stringify(data),
-        });
-      } catch {
-        /* noop — segue para o WhatsApp mesmo se o endpoint falhar */
-      }
-    }
+  const form = e.currentTarget;
+  const data = Object.fromEntries(new FormData(form).entries());
 
-    window.location.href = WHATSAPP_URL;
+  const whatsapp = String(data.whatsapp);
+  const email = String(data.email);
+  const cnpj = String(data.cnpj);
+
+  // Validações
+  if (!validateWhatsApp(whatsapp)) {
+    alert("WhatsApp inválido. Use 11 números.");
+    return;
   }
+
+  if (!validateEmail(email)) {
+    alert("E-mail inválido.");
+    return;
+  }
+
+  if (cnpj && !validateCNPJ(cnpj)) {
+    alert("CNPJ inválido.");
+    return;
+  }
+
+  setSubmitting(true);
+
+  const endpoint =
+  "https://script.google.com/macros/s/AKfycbwzxGTXCTiCOjnPnsnZE7-FL6PUYSsUwP44u4MHuD5_8DdlADebypN1parfegz4QsQR2g/exec";
+
+try {
+  const res = await fetch(endpoint, {
+    method: "POST",
+    body: JSON.stringify(data),
+  });
+
+  const result = await res.text(); // ou res.json()
+  console.log(result);
+  form.reset();
+} catch (err) {
+  console.error(err);
+}
+
+  window.location.href = WHATSAPP_URL;
+}
 
   return (
     <section id="contato" className="py-20 md:py-28">
@@ -389,10 +538,24 @@ function ContactForm() {
             projeto sob medida para o seu ponto e demanda.
           </p>
           <div className="mt-8 space-y-4 text-sm">
-            <InfoRow icon="📱" label="WhatsApp" value="+55 (19) 93501-1062" />
-            <InfoRow icon="🌎" label="Cobertura" value="Todo o território nacional" />
-            <InfoRow icon="🏭" label="Segmentos" value="Postos · Frotistas · Investidores" />
-          </div>
+  <InfoRow 
+    icon="/whatsapp.png" 
+    label="WhatsApp" 
+    value="+55 (19) 93501-1062" 
+  />
+
+  <InfoRow 
+    icon="/suporte-nacional.png" 
+    label="Cobertura" 
+    value="Todo o território nacional" 
+  />
+
+  <InfoRow 
+    icon="/segmento.png" 
+    label="Segmentos" 
+    value="Postos · Frotistas · Investidores" 
+  />
+</div>
         </div>
         <form onSubmit={onSubmit} className="bg-white border border-border rounded-2xl p-6 md:p-8 shadow-elev space-y-4">
           <div className="grid sm:grid-cols-2 gap-4">
@@ -445,14 +608,31 @@ function Field({ name, label, type = "text", required }: { name: string; label: 
   );
 }
 
-function InfoRow({ icon, label, value }: { icon: string; label: string; value: string }) {
+function InfoRow({
+  icon,
+  label,
+  value,
+}: {
+  icon: string;
+  label: string;
+  value: string;
+}) {
   return (
-    <div className="flex items-start gap-3">
-      <span aria-hidden className="text-xl">{icon}</span>
-      <div>
-        <div className="text-xs uppercase tracking-widest text-ink-soft">{label}</div>
-        <div className="font-semibold text-ink">{value}</div>
+    <div className="flex items-center gap-3">
+      
+      <div className="w-10 h-10 rounded-full bg-gray-100 flex items-center justify-center">
+        <img
+          src={icon}
+          alt={label}
+          className="w-5 h-5 object-contain"
+        />
       </div>
+
+      <div>
+        <p className="text-xs text-ink-soft">{label}</p>
+        <p className="font-medium text-ink">{value}</p>
+      </div>
+
     </div>
   );
 }
