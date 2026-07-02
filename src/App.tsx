@@ -477,7 +477,7 @@ function validateCNPJ(cnpj: string) {
   return result === parseInt(digits.charAt(1));
 }
 
-function ContactForm() { "https://script.google.com/macros/s/AKfycbyS4zlOox3x-011moAcDw9FhGPqnKGpKc8tzcRBxlpVkwgqCx3aYEswcGkMMG1iS0W0CQ/exec";
+function ContactForm() { "https://script.google.com/macros/s/AKfycbxJGrunYSCXPNWYU15EhrJ3rMPUluNoRmt5JntqX-iv2ZvUoSNxVd04AQakJqUGbXHceg/exec";
   const [submitting, setSubmitting] = useState(false);
 
   async function onSubmit(e: FormEvent<HTMLFormElement>) {
@@ -509,7 +509,7 @@ function ContactForm() { "https://script.google.com/macros/s/AKfycbyS4zlOox3x-01
   setSubmitting(true);
 
   const endpoint =
-  "https://script.google.com/macros/s/AKfycbyS4zlOox3x-011moAcDw9FhGPqnKGpKc8tzcRBxlpVkwgqCx3aYEswcGkMMG1iS0W0CQ/exec";
+  "https://script.google.com/macros/s/AKfycbxJGrunYSCXPNWYU15EhrJ3rMPUluNoRmt5JntqX-iv2ZvUoSNxVd04AQakJqUGbXHceg/exec";
 
 try {
   const res = await fetch(endpoint, {
