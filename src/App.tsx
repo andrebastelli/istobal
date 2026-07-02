@@ -722,7 +722,7 @@ function ContactForm() {
   setSubmitting(true);
 
   const endpoint =
-  "https://script.google.com/macros/s/AKfycbwzxGTXCTiCOjnPnsnZE7-FL6PUYSsUwP44u4MHuD5_8DdlADebypN1parfegz4QsQR2g/exec";
+  "https://script.google.com/macros/s/AKfycbxFIcl5QovR8t94VdduL9GJ5qyW7RCDuORxXQy_N89D5mHTSVP6w2PSW1gImuFLA09b8Q/exec";
 
 try {
   const res = await fetch(endpoint, {
