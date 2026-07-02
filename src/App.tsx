@@ -519,6 +519,7 @@ try {
 
   const result = await res.text(); // ou res.json()
   console.log(result);
+  form.reset();
 } catch (err) {
   console.error(err);
 }
