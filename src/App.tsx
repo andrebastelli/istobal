@@ -79,6 +79,7 @@ export default function App() {
         <TLDR />
         <Pains />
         <Benefits />
+        <VideoDemo />
         <HowItWorks />
         <FeaturedProducts />
         <Compare />
@@ -262,6 +263,52 @@ function Benefits() {
 
             </div>
           ))}
+        </div>
+      </div>
+    </section>
+  );
+}
+
+function VideoDemo() {
+  return (
+    <section className="py-20 md:py-28">
+      <div className="container-x">
+        <div className="max-w-2xl mb-12">
+          <span className="eyebrow">Tecnologia em ação</span>
+          <h2 className="mt-3 text-3xl md:text-4xl">Veja a máquina funcionando</h2>
+          <p className="mt-4 text-lg text-ink-soft">
+            Confira na prática como a ISTOBAL M&apos;WASH3 PRO realiza a lavagem com precisão, velocidade e qualidade.
+          </p>
+        </div>
+
+        <div className="relative rounded-3xl overflow-hidden shadow-2xl bg-black">
+          <div className="w-full aspect-video bg-gradient-to-br from-gray-900 to-black flex items-center justify-center">
+            <iframe
+              width="100%"
+              height="100%"
+              src="https://www.youtube.com/embed/dQw4w9WgXcQ?si=jNzFz_dL8F1K3QQK"
+              title="ISTOBAL M'WASH3 PRO em funcionamento"
+              frameBorder="0"
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+              allowFullScreen
+              className="w-full h-full"
+            />
+          </div>
+        </div>
+
+        <div className="mt-10 grid md:grid-cols-3 gap-6">
+          <div className="p-6 rounded-xl bg-surface border border-border">
+            <div className="text-3xl font-black text-primary mb-2">3-5 min</div>
+            <p className="text-sm text-ink-soft">Ciclo completo de lavagem por veículo</p>
+          </div>
+          <div className="p-6 rounded-xl bg-surface border border-border">
+            <div className="text-3xl font-black text-primary mb-2">100%</div>
+            <p className="text-sm text-ink-soft">Qualidade e padronização garantidas</p>
+          </div>
+          <div className="p-6 rounded-xl bg-surface border border-border">
+            <div className="text-3xl font-black text-primary mb-2">24/7</div>
+            <p className="text-sm text-ink-soft">Operação contínua e confiável</p>
+          </div>
         </div>
       </div>
     </section>
