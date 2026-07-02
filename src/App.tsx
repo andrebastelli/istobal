@@ -469,10 +469,24 @@ function ContactForm() {
             projeto sob medida para o seu ponto e demanda.
           </p>
           <div className="mt-8 space-y-4 text-sm">
-            <InfoRow icon="📱" label="WhatsApp" value="+55 (19) 93501-1062" />
-            <InfoRow icon="🌎" label="Cobertura" value="Todo o território nacional" />
-            <InfoRow icon="🏭" label="Segmentos" value="Postos · Frotistas · Investidores" />
-          </div>
+  <InfoRow 
+    icon="/whatsapp.png" 
+    label="WhatsApp" 
+    value="+55 (19) 93501-1062" 
+  />
+
+  <InfoRow 
+    icon="/suporte-nacional.png" 
+    label="Cobertura" 
+    value="Todo o território nacional" 
+  />
+
+  <InfoRow 
+    icon="/segmento.png" 
+    label="Segmentos" 
+    value="Postos · Frotistas · Investidores" 
+  />
+</div>
         </div>
         <form onSubmit={onSubmit} className="bg-white border border-border rounded-2xl p-6 md:p-8 shadow-elev space-y-4">
           <div className="grid sm:grid-cols-2 gap-4">
@@ -525,14 +539,23 @@ function Field({ name, label, type = "text", required }: { name: string; label: 
   );
 }
 
-function InfoRow({ icon, label, value }: { icon: string; label: string; value: string }) {
+function InfoRow({ icon, label, value }) {
   return (
-    <div className="flex items-start gap-3">
-      <span aria-hidden className="text-xl">{icon}</span>
-      <div>
-        <div className="text-xs uppercase tracking-widest text-ink-soft">{label}</div>
-        <div className="font-semibold text-ink">{value}</div>
+    <div className="flex items-center gap-3">
+      
+      <div className="w-10 h-10 rounded-full bg-gray-100 flex items-center justify-center">
+        <img
+          src={icon}
+          alt={label}
+          className="w-5 h-5 object-contain"
+        />
       </div>
+
+      <div>
+        <p className="text-xs text-ink-soft">{label}</p>
+        <p className="font-medium text-ink">{value}</p>
+      </div>
+
     </div>
   );
 }
