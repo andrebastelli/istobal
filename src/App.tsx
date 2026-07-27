@@ -1,6 +1,8 @@
 import { useEffect, useState, type FormEvent } from "react";
-import heroImg from "@/assets/hero-carwash.jpg";
 import PrivacyPolicy from "./PrivacyPolicy";
+import fundohero from "@/assets/bg.webp";
+import maquina from "@/assets/maquina.webp";
+import fundo from "@/assets/retangulo.webp";
 
 const WHATSAPP_NUMBER = "5519935011062";
 const WHATSAPP_MSG = "Olá, quero entender melhor as soluções de lavagem automatizada da Istobal para o meu negócio.";
@@ -190,56 +192,112 @@ function Header() {
 
 function Hero() {
   return (
-    <section className="relative overflow-hidden bg-surface">
-      <div className="container-x grid lg:grid-cols-2 gap-12 lg:gap-16 py-16 md:py-24 items-center">
-        <div>
-          <span className="eyebrow">Tecnologia Global · 75 anos</span>
-          <h1 className="mt-4 text-4xl md:text-5xl lg:text-6xl font-black leading-[1.05]">
-            Transforme sua lavagem em uma{" "}
-            <span className="text-primary">operação mais rápida, segura e rentável.</span>
-          </h1>
-          <p className="mt-6 text-lg text-ink-soft max-w-xl leading-relaxed">
-           Tecnologia presente em mais de 80 países para aumentar a eficiência operacional e melhorar a experiência dos seus clientes.
-          </p>
-          <div className="mt-8 flex flex-wrap gap-3">
-            <a href="#contato" className="btn-primary">Falar com um especialista</a>
-            <a href="#produtos" className="btn-ghost">Conhecer Equipamentos</a>
-          </div>
-          <div className="mt-10 flex flex-wrap gap-8 text-sm text-ink-soft">
-            <Stat n="+80" label="Países atendidos" />
-            <Stat n="75" label="Anos de experiência" />
-            <Stat n="-80%" label="Mão de obra" />
+    <section className="relative overflow-hidden min-h-[640px] lg:min-h-[820px] bg-[#150407]">
+      {/* Fundo cheio (gotas + carro) */}
+      <img
+        src={fundohero}
+        alt=""
+        aria-hidden
+        className="absolute inset-0 h-full w-full object-cover"
+      />
+
+      {/* ---------- DESKTOP: composição fiel à referência ---------- */}
+      <div className="hidden lg:block absolute inset-0 z-10">
+        {/* Painel claro, moldado pela máscara do recorte fornecido */}
+        <div
+          className="absolute left-[4%] top-[6%] bottom-0 w-[95%] bg-surface"
+          style={{
+            WebkitMaskImage: `url(${fundo})`,
+            maskImage: `url(${fundo})`,
+            WebkitMaskRepeat: "no-repeat",
+            maskRepeat: "no-repeat",
+            WebkitMaskSize: "100% 100%",
+            maskSize: "100% 100%",
+            WebkitMaskPosition: "center",
+            maskPosition: "center",
+          }}
+        />
+
+        {/* Texto, ancorado na área retangular do painel (evita a diagonal) */}
+        <div className="absolute left-[4%] top-[6%] bottom-[6%] w-[70%] flex flex-col justify-center px-14 xl:px-16">
+          <div className="max-w-[520px]">
+            <span className="block text-primary font-bold text-base">
+              Tecnologia Global | 75 anos
+            </span>
+
+            <h1 className="mt-4 text-4xl xl:text-[3.2rem] font-black leading-[1.08] text-ink">
+              Transforme a lavagem automática em uma operação mais{" "}
+              <span className="text-primary">rápida, segura e rentável.</span>
+            </h1>
+
+            <p className="mt-6 text-lg text-ink leading-relaxed">
+              <span className="font-bold">Tecnologia presente em mais de 80 países</span>{" "}
+              <span className="font-normal text-ink-soft">
+                para aumentar a eficiência operacional e melhorar a experiência dos seus clientes.
+              </span>
+            </p>
+
+            <div className="mt-8 flex flex-wrap gap-3">
+              <a href="#contato" className="btn-primary">
+                Falar com um especialista
+              </a>
+              <a href="#produtos" className="btn-ghost">
+                Conhecer Equipamentos
+              </a>
+            </div>
           </div>
         </div>
-        <div className="relative">
-          <div className="absolute -inset-4 bg-primary/10 rounded-3xl blur-2xl" aria-hidden />
+
+        {/* Máquina, sobreposta à diagonal do painel — por cima de tudo */}
+        <img
+          src={maquina}
+          alt="Equipamento ISTOBAL de lavagem automática"
+          className="absolute z-20 left-[47%] top-[20%] w-[42%] h-auto drop-shadow-2xl select-none pointer-events-none"
+        />
+      </div>
+
+      {/* ---------- MOBILE/TABLET: versão empilhada, sem máscara/absolute ---------- */}
+      <div className="lg:hidden relative z-10 container-x py-12 md:py-16">
+        <div className="bg-surface rounded-[28px] px-6 py-10 md:px-10 md:py-12">
+          <span className="block mt-8 text-primary font-bold text-sm md:text-base">
+  Tecnologia Global | 75 anos
+</span>
+
+          <h1 className="mt-4 text-3xl md:text-4xl font-black leading-[1.1] text-ink">
+            Transforme a lavagem automática em uma operação mais{" "}
+            <span className="text-primary">rápida, segura e rentável.</span>
+          </h1>
+
+          <p className="mt-5 text-base md:text-lg text-ink leading-relaxed">
+            <span className="font-bold">Tecnologia presente em mais de 80 países</span>{" "}
+            <span className="font-normal text-ink-soft">
+              para aumentar a eficiência operacional e melhorar a experiência dos seus clientes.
+            </span>
+          </p>
+
           <img
-            src={heroImg}
-            alt="Equipamento ISTOBAL de lavagem automatizada em operação"
-            width={1600}
-            height={1200}
-            fetchPriority="high"
-            decoding="async"
-            className="relative w-full h-auto rounded-2xl shadow-elev object-cover aspect-[4/3]"
+            src={maquina}
+            alt="Equipamento ISTOBAL de lavagem automática"
+            className="mt-6 w-full max-w-[360px] mx-auto h-auto"
           />
+
+          <div className="mt-6 flex flex-wrap gap-3">
+            <a href="#contato" className="btn-primary">
+              Falar com um especialista
+            </a>
+            <a href="#produtos" className="btn-ghost">
+              Conhecer Equipamentos
+            </a>
+          </div>
         </div>
       </div>
     </section>
   );
 }
 
-function Stat({ n, label }: { n: string; label: string }) {
-  return (
-    <div>
-      <div className="text-3xl font-black text-ink">{n}</div>
-      <div className="text-xs uppercase tracking-widest mt-1">{label}</div>
-    </div>
-  );
-}
-
 function TLDR() {
   return (
-    <section className="border-y border-border bg-ink text-white">
+    <section className="bg-gradient-to-r from-[#a70021] to-[#000000] text-white">
       <div className="container-x py-8 md:py-10 flex flex-col md:flex-row items-start md:items-center gap-4">
         
         <p className="text-base md:text-lg leading-relaxed">
