@@ -297,7 +297,7 @@ function Hero() {
 
 function TLDR() {
   return (
-    <section className="border-y border-border bg-ink text-white">
+    <section className="bg-gradient-to-r from-[#a70021] to-[#000000] text-white">
       <div className="container-x py-8 md:py-10 flex flex-col md:flex-row items-start md:items-center gap-4">
         
         <p className="text-base md:text-lg leading-relaxed">
