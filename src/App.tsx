@@ -259,9 +259,9 @@ function Hero() {
       {/* ---------- MOBILE/TABLET: versão empilhada, sem máscara/absolute ---------- */}
       <div className="lg:hidden relative z-10 container-x py-12 md:py-16">
         <div className="bg-surface rounded-[28px] px-6 py-10 md:px-10 md:py-12">
-          <span className="block text-primary font-bold text-sm md:text-base">
-            Tecnologia Global | 75 anos
-          </span>
+          <span className="block mt-8 text-primary font-bold text-sm md:text-base">
+  Tecnologia Global | 75 anos
+</span>
 
           <h1 className="mt-4 text-3xl md:text-4xl font-black leading-[1.1] text-ink">
             Transforme a lavagem automática em uma operação mais{" "}
