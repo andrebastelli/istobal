@@ -220,17 +220,17 @@ function Hero() {
 
         {/* Texto, ancorado na área retangular do painel (evita a diagonal) */}
         <div className="absolute left-[4%] top-[10%] bottom-[6%] w-[70%] flex flex-col justify-center px-14 xl:px-16">
-          <div className="max-w-[700px]">
+          <div className="max-w-[1200px]">
             <span className="block text-primary font-bold text-base">
               Tecnologia Global | 75 anos
             </span>
 
-            <h1 className="mt-4 text-4xl xl:text-[3.2rem] font-black leading-[1.08] text-ink">
+            <h1 className="mt-4 text-4xl xl:text-[3.2rem] font-black leading-[1.08] text-ink max-w-[600px]">
               Transforme a lavagem automática em uma operação mais{" "}
               <span className="text-primary">rápida, segura e rentável.</span>
             </h1>
 
-           <p className="mt-6 max-w-[500px] text-lg leading-relaxed text-ink">
+           <p className="mt-6 max-w-[600px] text-lg leading-relaxed text-ink">
             <span className="font-bold">
               Referência mundial em tecnologia para lavagem automotiva,
             </span>{" "}
@@ -240,7 +240,7 @@ function Hero() {
             </span>
           </p>
 
-            <div className="mt-8 flex flex-wrap gap-3">
+            <div className="mt-10 flex flex-wrap gap-3">
               <a href="#contato" className="btn-primary">
                 Falar com um especialista
               </a>
@@ -249,7 +249,7 @@ function Hero() {
               </a>
             </div>
 
-            <div className="mt-10 grid grid-cols-3 gap-x-10 max-w-[760px]">
+            <div className="mt-10 grid grid-cols-3 gap-x-10 max-w-[1100px]">
               <Stat n="+80" label="Países atendidos" />
               <Stat n="+75 Anos" label="de experiência e inovação" />
               <Stat n="Até 80%" label="De redução na necessidade de mão de obra" />
@@ -299,10 +299,12 @@ function Hero() {
             </a>
           </div>
 
-          <div className="mt-8 flex flex-wrap gap-6 text-sm text-ink-soft">
+          <div className="mt-10 grid grid-cols-3 w-full max-w-[820px]">
             <Stat n="+80" label="Países atendidos" />
-            <Stat n="75 anos" label="de experiência e inovação" />
-            <Stat n="Até 80%" label="De redução na necessidade de mão de obra" />
+            <Stat n="+75 Anos" label="de experiência e inovação" />
+            <div className="pl-10">
+              <Stat n="Até 80%" label="De redução na necessidade de mão de obra" />
+            </div>
           </div>
         </div>
       </div>
