@@ -1,8 +1,8 @@
 import { useEffect, useState, type FormEvent } from "react";
 import PrivacyPolicy from "./PrivacyPolicy";
-import bgImg from "@/assets/bg.webp";
-import machineImg from "@/assets/maquina.webp";
-import panelImg from "@/assets/retangulo.webp";
+import fundohero from "@/assets/bg.webp";
+import maquina from "@/assets/maquina.webp";
+import fundo from "@/assets/retangulo.webp";
 
 const WHATSAPP_NUMBER = "5519935011062";
 const WHATSAPP_MSG = "Olá, quero entender melhor as soluções de lavagem automatizada da Istobal para o meu negócio.";
@@ -195,7 +195,7 @@ function Hero() {
     <section className="relative overflow-hidden min-h-[640px] lg:min-h-[820px] bg-[#150407]">
       {/* Fundo cheio (gotas + carro) */}
       <img
-        src={bgImg}
+        src={fundohero}
         alt=""
         aria-hidden
         className="absolute inset-0 h-full w-full object-cover"
@@ -207,8 +207,8 @@ function Hero() {
         <div
           className="absolute left-[4%] top-[6%] bottom-[6%] w-[54%] bg-surface"
           style={{
-            WebkitMaskImage: `url(${panelImg})`,
-            maskImage: `url(${panelImg})`,
+            WebkitMaskImage: `url(${fundo})`,
+            maskImage: `url(${fundo})`,
             WebkitMaskRepeat: "no-repeat",
             maskRepeat: "no-repeat",
             WebkitMaskSize: "100% 100%",
@@ -256,7 +256,7 @@ function Hero() {
 
         {/* Máquina, sobreposta à diagonal do painel — por cima de tudo */}
         <img
-          src={machineImg}
+          src={maquina}
           alt="Equipamento ISTOBAL de lavagem automática"
           className="absolute z-20 left-[47%] top-[20%] w-[42%] h-auto drop-shadow-2xl select-none pointer-events-none"
         />
@@ -282,7 +282,7 @@ function Hero() {
           </p>
 
           <img
-            src={machineImg}
+            src={maquina}
             alt="Equipamento ISTOBAL de lavagem automática"
             className="mt-6 w-full max-w-[360px] mx-auto h-auto"
           />
