@@ -310,15 +310,16 @@ function Hero() {
   );
 }
 
-function Stat({ n, label }) {
+type StatProps = {
+  n: string;
+  label: string;
+};
+
+function Stat({ n, label }: StatProps) {
   return (
-    <div className="text-center">
-      <div className="text-[2.25rem] font-black text-ink leading-none">
-        {n}
-      </div>
-      <div className="mt-2 text-[0.85rem] uppercase tracking-[0.15em] text-ink-soft">
-        {label}
-      </div>
+    <div>
+      <div className="text-[2.25rem] font-black">{n}</div>
+      <div>{label}</div>
     </div>
   );
 }
