@@ -323,9 +323,7 @@ function TLDR() {
       <div className="container-x py-8 md:py-10 flex flex-col md:flex-row items-start md:items-center gap-4">
         
         <p className="text-base md:text-lg leading-relaxed">
-          A ISTOBAL oferece soluções de lavagem automática que reduzem a dependência de mão
-          de obra em até <strong className="text-white">80%</strong> e aumentam a margem de lucro por veículo lavado,
-          com presença em mais de <strong className="text-white">80 países</strong>.
+          Reduza em até <strong className="text-white">80%</strong> a dependência de mão de obra e aumente a rentabilidade da sua operação com a tecnologia de uma empresa presente em mais de <strong className="text-white">80 países</strong>.
         </p>
       </div>
     </section>
