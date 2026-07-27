@@ -245,6 +245,12 @@ function Hero() {
                 Conhecer Equipamentos
               </a>
             </div>
+
+            <div className="mt-10 flex flex-wrap gap-8 text-sm text-ink-soft">
+              <Stat n="+80" label="Países atendidos" />
+              <Stat n="75" label="Anos de experiência" />
+              <Stat n="-80%" label="Mão de obra" />
+            </div>
           </div>
         </div>
 
@@ -259,9 +265,9 @@ function Hero() {
       {/* ---------- MOBILE/TABLET: versão empilhada, sem máscara/absolute ---------- */}
       <div className="lg:hidden relative z-10 container-x py-12 md:py-16">
         <div className="bg-surface rounded-[28px] px-6 py-10 md:px-10 md:py-12">
-          <span className="block mt-8 text-primary font-bold text-sm md:text-base">
-  Tecnologia Global | 75 anos
-</span>
+          <span className="block text-primary font-bold text-sm md:text-base">
+            Tecnologia Global | 75 anos
+          </span>
 
           <h1 className="mt-4 text-3xl md:text-4xl font-black leading-[1.1] text-ink">
             Transforme a lavagem automática em uma operação mais{" "}
@@ -269,9 +275,9 @@ function Hero() {
           </h1>
 
           <p className="mt-5 text-base md:text-lg text-ink leading-relaxed">
-            <span className="font-bold">Tecnologia presente em mais de 80 países</span>{" "}
+            <span className="font-bold">Referência mundial em tecnologia para lavagem automotiva</span>{" "}
             <span className="font-normal text-ink-soft">
-              para aumentar a eficiência operacional e melhorar a experiência dos seus clientes.
+              com presença global por meio de 17 filiais internacionais, 5 fábricas e uma ampla rede de distribuidores.
             </span>
           </p>
 
@@ -289,11 +295,27 @@ function Hero() {
               Conhecer Equipamentos
             </a>
           </div>
+
+          <div className="mt-8 flex flex-wrap gap-6 text-sm text-ink-soft">
+            <Stat n="+80" label="Países atendidos" />
+            <Stat n="75 anos" label="de experiência e inovação" />
+            <Stat n="Até 80%" label="De redução na necessidade de mão de obra" />
+          </div>
         </div>
       </div>
     </section>
   );
 }
+
+function Stat({ n, label }: { n: string; label: string }) {
+  return (
+    <div>
+      <div className="text-3xl font-black text-ink">{n}</div>
+      <div className="text-xs uppercase tracking-widest mt-1">{label}</div>
+    </div>
+  );
+}
+
 
 function TLDR() {
   return (
