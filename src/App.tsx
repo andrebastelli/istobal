@@ -160,7 +160,6 @@ function Header() {
             alt="ISTOBAL"
             className="h-8 w-auto object-contain"
           />
-          <span className="hidden sm:inline-block h-1 w-6 bg-primary rounded-full" />
         </a>
         <nav className="hidden md:flex items-center gap-8 text-sm font-medium text-ink-soft">
           <a href="#beneficios" className="hover:text-ink transition-colors">Benefícios</a>
@@ -295,22 +294,22 @@ function Hero() {
           />
 
           <div className="mt-6 flex flex-wrap gap-3 justify-center lg:justify-start">
-  <a href="#contato" className="btn-primary">
-    Falar com um especialista
-  </a>
+            <a href="#contato" className="btn-primary">
+              Falar com um especialista
+            </a>
 
-  <a href="#produtos" className="btn-ghost">
-    Conhecer Equipamentos
-  </a>
-</div>
+            <a href="#produtos" className="btn-ghost">
+              Conhecer Equipamentos
+            </a>
+          </div>
 
-<div className="mt-10 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8 text-center lg:text-left">
-  <Stat n="+80" label="Países atendidos" />
+          <div className="mt-10 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8 text-center lg:text-left">
+            <Stat n="+80" label="Países atendidos" />
 
-  <Stat n="+75 Anos" label="de experiência e inovação" />
+            <Stat n="+75 Anos" label="de experiência e inovação" />
 
-  <Stat n="Até 80%" label="De redução na necessidade de mão de obra" />
-</div>
+            <Stat n="Até 80%" label="De redução na necessidade de mão de obra" />
+          </div>
         </div>
       </div>
     </section>
