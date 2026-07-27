@@ -1,6 +1,8 @@
 import { useEffect, useState, type FormEvent } from "react";
-import heroImg from "@/assets/hero-carwash.jpg";
 import PrivacyPolicy from "./PrivacyPolicy";
+import bgImg from "@/assets/bg.webp";
+import machineImg from "@/assets/maquina.webp";
+import panelImg from "@/assets/retangulo.webp";
 
 const WHATSAPP_NUMBER = "5519935011062";
 const WHATSAPP_MSG = "Olá, quero entender melhor as soluções de lavagem automatizada da Istobal para o meu negócio.";
@@ -190,62 +192,45 @@ function Header() {
 
 function Hero() {
   return (
-    <section className="relative overflow-hidden bg-[#150407]">
-      {/* Foto de fundo, ocupando a seção inteira */}
-      <div className="absolute inset-0">
-        <img
-          src={heroImg}
-          alt="Equipamento ISTOBAL de lavagem automatizada em operação"
-          className="absolute inset-0 h-full w-full object-cover object-[75%_center] opacity-90 lg:opacity-100"
-        />
-        {/* escurece a esquerda para o card e a textura entrarem por cima */}
-        <div className="absolute inset-0 bg-gradient-to-r from-[#150407] via-[#150407]/70 to-transparent lg:via-[#150407]/40" />
-        <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-transparent to-transparent" />
-      </div>
-
-      {/* Textura de gotas na faixa escura da esquerda (só desktop, pra não poluir o mobile) */}
-      <div
-        className="hidden lg:block absolute inset-y-0 left-0 w-[40%] opacity-25 pointer-events-none"
-        style={{
-          backgroundImage:
-            "radial-gradient(circle at 15% 20%, rgba(255,255,255,.10) 0 2px, transparent 3px)," +
-            "radial-gradient(circle at 35% 55%, rgba(255,255,255,.08) 0 3px, transparent 4px)," +
-            "radial-gradient(circle at 60% 15%, rgba(255,255,255,.07) 0 2px, transparent 3px)," +
-            "radial-gradient(circle at 22% 80%, rgba(255,255,255,.09) 0 3px, transparent 4px)",
-          backgroundSize: "160px 160px",
-        }}
-      />
-
-      {/* Mancha vermelha ambiente */}
-      <div className="hidden lg:block absolute -top-20 left-[12%] w-[380px] h-[380px] bg-primary/25 rounded-full blur-3xl pointer-events-none" />
-
-      {/* Cunha diagonal (a "bandeira") — só aparece a partir do lg, e é um elemento à parte do card */}
-      <div
+    <section className="relative overflow-hidden min-h-[640px] lg:min-h-[820px] bg-[#150407]">
+      {/* Fundo cheio (gotas + carro) */}
+      <img
+        src={bgImg}
+        alt=""
         aria-hidden
-        className="hidden lg:block absolute bg-surface
-                   lg:[clip-path:polygon(0_0,100%_35%,100%_100%,0_100%)]
-                   lg:left-[50%] lg:top-[42%] lg:bottom-0 lg:w-[42%]"
+        className="absolute inset-0 h-full w-full object-cover"
       />
 
-      {/* Conteúdo */}
-      <div className="relative z-10 container-x py-14 md:py-20 lg:py-24">
+      {/* ---------- DESKTOP: composição fiel à referência ---------- */}
+      <div className="hidden lg:block absolute inset-0 z-10">
+        {/* Painel claro, moldado pela máscara do recorte fornecido */}
         <div
-          className="bg-surface rounded-[28px] lg:rounded-[40px]
-                     lg:w-[54%] lg:min-h-[560px]
-                     px-6 py-10 md:px-12 md:py-14 lg:px-16 lg:py-0
-                     flex flex-col justify-center"
-        >
-          <div className="max-w-[560px]">
-            <span className="block text-primary font-bold text-sm md:text-base">
+          className="absolute left-[4%] top-[6%] bottom-[6%] w-[54%] bg-surface"
+          style={{
+            WebkitMaskImage: `url(${panelImg})`,
+            maskImage: `url(${panelImg})`,
+            WebkitMaskRepeat: "no-repeat",
+            maskRepeat: "no-repeat",
+            WebkitMaskSize: "100% 100%",
+            maskSize: "100% 100%",
+            WebkitMaskPosition: "center",
+            maskPosition: "center",
+          }}
+        />
+
+        {/* Texto, ancorado na área retangular do painel (evita a diagonal) */}
+        <div className="absolute left-[4%] top-[6%] bottom-[6%] w-[54%] flex flex-col justify-center px-14 xl:px-16">
+          <div className="max-w-[520px]">
+            <span className="block text-primary font-bold text-base">
               Tecnologia Global | 75 anos
             </span>
 
-            <h1 className="mt-4 text-3xl md:text-4xl lg:text-[3.3rem] font-black leading-[1.08] text-ink">
+            <h1 className="mt-4 text-4xl xl:text-[3.2rem] font-black leading-[1.08] text-ink">
               Transforme a lavagem automática em uma operação mais{" "}
               <span className="text-primary">rápida, segura e rentável.</span>
             </h1>
 
-            <p className="mt-6 text-base md:text-lg text-ink leading-relaxed">
+            <p className="mt-6 text-lg text-ink leading-relaxed">
               <span className="font-bold">Tecnologia presente em mais de 80 países</span>{" "}
               <span className="font-normal text-ink-soft">
                 para aumentar a eficiência operacional e melhorar a experiência dos seus clientes.
@@ -268,10 +253,56 @@ function Hero() {
             </div>
           </div>
         </div>
+
+        {/* Máquina, sobreposta à diagonal do painel — por cima de tudo */}
+        <img
+          src={machineImg}
+          alt="Equipamento ISTOBAL de lavagem automática"
+          className="absolute z-20 left-[47%] top-[20%] w-[42%] h-auto drop-shadow-2xl select-none pointer-events-none"
+        />
       </div>
 
-      {/* No mobile, a foto some atrás do overlay escuro acima; aqui garantimos altura mínima decente */}
-      <div className="lg:hidden h-6" />
+      {/* ---------- MOBILE/TABLET: versão empilhada, sem máscara/absolute ---------- */}
+      <div className="lg:hidden relative z-10 container-x py-12 md:py-16">
+        <div className="bg-surface rounded-[28px] px-6 py-10 md:px-10 md:py-12">
+          <span className="block text-primary font-bold text-sm md:text-base">
+            Tecnologia Global | 75 anos
+          </span>
+
+          <h1 className="mt-4 text-3xl md:text-4xl font-black leading-[1.1] text-ink">
+            Transforme a lavagem automática em uma operação mais{" "}
+            <span className="text-primary">rápida, segura e rentável.</span>
+          </h1>
+
+          <p className="mt-5 text-base md:text-lg text-ink leading-relaxed">
+            <span className="font-bold">Tecnologia presente em mais de 80 países</span>{" "}
+            <span className="font-normal text-ink-soft">
+              para aumentar a eficiência operacional e melhorar a experiência dos seus clientes.
+            </span>
+          </p>
+
+          <img
+            src={machineImg}
+            alt="Equipamento ISTOBAL de lavagem automática"
+            className="mt-6 w-full max-w-[360px] mx-auto h-auto"
+          />
+
+          <div className="mt-6 flex flex-wrap gap-3">
+            <a href="#contato" className="btn-primary">
+              Falar com um especialista
+            </a>
+            <a href="#produtos" className="btn-ghost">
+              Conhecer Equipamentos
+            </a>
+          </div>
+
+          <div className="mt-8 flex flex-wrap gap-6 text-sm text-ink-soft">
+            <Stat n="+80" label="Países atendidos" />
+            <Stat n="75" label="Anos de experiência" />
+            <Stat n="-80%" label="Mão de obra" />
+          </div>
+        </div>
+      </div>
     </section>
   );
 }
