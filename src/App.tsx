@@ -245,12 +245,6 @@ function Hero() {
                 Conhecer Equipamentos
               </a>
             </div>
-
-            <div className="mt-10 flex flex-wrap gap-8 text-sm text-ink-soft">
-              <Stat n="+80" label="Países atendidos" />
-              <Stat n="75" label="Anos de experiência" />
-              <Stat n="-80%" label="Mão de obra" />
-            </div>
           </div>
         </div>
 
@@ -295,24 +289,9 @@ function Hero() {
               Conhecer Equipamentos
             </a>
           </div>
-
-          <div className="mt-8 flex flex-wrap gap-6 text-sm text-ink-soft">
-            <Stat n="+80" label="Países atendidos" />
-            <Stat n="75" label="Anos de experiência" />
-            <Stat n="-80%" label="Mão de obra" />
-          </div>
         </div>
       </div>
     </section>
-  );
-}
-
-function Stat({ n, label }: { n: string; label: string }) {
-  return (
-    <div>
-      <div className="text-3xl font-black text-ink">{n}</div>
-      <div className="text-xs uppercase tracking-widest mt-1">{label}</div>
-    </div>
   );
 }
 
