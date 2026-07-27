@@ -9,16 +9,16 @@ const WHATSAPP_MSG = "Olá, quero entender melhor as soluções de lavagem autom
 const WHATSAPP_URL = `https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(WHATSAPP_MSG)}`;
 
 const BENEFITS = [
-  { icon: "/alta-performance.png", title: "Alta Performance", text: "Lave mais veículos por hora com ciclos rápidos e consistentes." },
-  { icon: "/roi-acelerado.png", title: "ROI Acelerado", text: "Retorno do investimento em meses graças à margem por veículo." },
-  { icon: "/tecnologia-propria.png", title: "Tecnologia Própria", text: "Engenharia europeia com peças e software desenvolvidos pela ISTOBAL." },
-  { icon: "/suporte-nacional.png", title: "Suporte Nacional", text: "Assistência técnica, peças e treinamento com equipe no Brasil." },
+  { icon: "/alta-performance.png", title: "Mais produtividade", text: "Atenda mais veículos por hora com ciclos rápidos, seguros e padronizados." },
+  { icon: "/roi-acelerado.png", title: "Maior rentabilidade", text: "Reduza a dependência de mão de obra, otimize custos operacionais e acelere o retorno do investimento." },
+  { icon: "/tecnologia-propria.png", title: "Tecnologia global", text: "Engenharia europeia, tecnologia própria e presença em mais de 80 países, garantindo inovação e confiabilidade." },
+  { icon: "/suporte-nacional.png", title: "Suporte no Brasil", text: "Conte com assistência técnica especializada, peças de reposição e treinamento para manter sua operação sempre em funcionamento." },
 ];
 
 const PAINS = [
-  { title: "Baixa produtividade manual", text: "Equipes limitam quantos veículos você lava por dia — e seu faturamento." },
-  { title: "Falta de padronização", text: "Qualidade inconsistente derruba a satisfação e a recompra do cliente." },
-  { title: "Alto custo de funcionários", text: "Folha, encargos e rotatividade corroem sua margem operacional." },
+  { title: "Capacidade operacional", text: "Quando o volume de atendimento depende exclusivamente da equipe, o crescimento da operação também encontra limites." },
+  { title: "Experiência do cliente", text: "Resultados diferentes a cada lavagem podem comprometer a satisfação, a fidelização e a percepção da sua marca." },
+  { title: "Custos operacionais", text: "A gestão de mão de obra, encargos e rotatividade pode reduzir a eficiência e pressionar as margens do negócio." },
 ];
 
 const STEPS = [
@@ -219,25 +219,28 @@ function Hero() {
         />
 
         {/* Texto, ancorado na área retangular do painel (evita a diagonal) */}
-        <div className="absolute left-[4%] top-[6%] bottom-[6%] w-[70%] flex flex-col justify-center px-14 xl:px-16">
-          <div className="max-w-[520px]">
+        <div className="absolute left-[4%] top-[10%] bottom-[6%] w-[70%] flex flex-col justify-center px-14 xl:px-16">
+          <div className="max-w-[1200px]">
             <span className="block text-primary font-bold text-base">
               Tecnologia Global | 75 anos
             </span>
 
-            <h1 className="mt-4 text-4xl xl:text-[3.2rem] font-black leading-[1.08] text-ink">
+            <h1 className="mt-4 text-4xl xl:text-[3.2rem] font-black leading-[1.08] text-ink max-w-[600px]">
               Transforme a lavagem automática em uma operação mais{" "}
               <span className="text-primary">rápida, segura e rentável.</span>
             </h1>
 
-            <p className="mt-6 text-lg text-ink leading-relaxed">
-              <span className="font-bold">Tecnologia presente em mais de 80 países</span>{" "}
-              <span className="font-normal text-ink-soft">
-                para aumentar a eficiência operacional e melhorar a experiência dos seus clientes.
-              </span>
-            </p>
+           <p className="mt-6 max-w-[600px] text-lg leading-relaxed text-ink">
+            <span className="font-bold">
+              Referência mundial em tecnologia para lavagem automotiva,
+            </span>{" "}
+            <span className="text-ink-soft">
+              com presença global por meio de 17 filiais internacionais, 5 fábricas e
+              uma ampla rede de distribuidores.
+            </span>
+          </p>
 
-            <div className="mt-8 flex flex-wrap gap-3">
+            <div className="mt-10 flex flex-wrap gap-3">
               <a href="#contato" className="btn-primary">
                 Falar com um especialista
               </a>
@@ -245,6 +248,16 @@ function Hero() {
                 Conhecer Equipamentos
               </a>
             </div>
+
+            <div className="mt-10 grid grid-cols-3 gap-x-10 max-w-[1100px]">
+  <Stat n="+80" label="Países atendidos" />
+
+  <div className="-ml-10">
+    <Stat n="+75 Anos" label="de experiência e inovação" />
+  </div>
+
+  <Stat n="Até 80%" label="De redução na necessidade de mão de obra" />
+</div>
           </div>
         </div>
 
@@ -259,19 +272,19 @@ function Hero() {
       {/* ---------- MOBILE/TABLET: versão empilhada, sem máscara/absolute ---------- */}
       <div className="lg:hidden relative z-10 container-x py-12 md:py-16">
         <div className="bg-surface rounded-[28px] px-6 py-10 md:px-10 md:py-12">
-          <span className="block mt-8 text-primary font-bold text-sm md:text-base">
-  Tecnologia Global | 75 anos
-</span>
+          <span className="block text-primary font-bold text-sm md:text-base">
+            Tecnologia Global | 75 anos
+          </span>
 
           <h1 className="mt-4 text-3xl md:text-4xl font-black leading-[1.1] text-ink">
             Transforme a lavagem automática em uma operação mais{" "}
             <span className="text-primary">rápida, segura e rentável.</span>
           </h1>
 
-          <p className="mt-5 text-base md:text-lg text-ink leading-relaxed">
-            <span className="font-bold">Tecnologia presente em mais de 80 países</span>{" "}
+          <p className="mt-5 text-base md:text-lg text-ink leading-relaxed max-w-[600px]">
+            <span className="font-bold">Referência mundial em tecnologia para lavagem automotiva</span>{" "}
             <span className="font-normal text-ink-soft">
-              para aumentar a eficiência operacional e melhorar a experiência dos seus clientes.
+              com presença global por meio de 17 filiais internacionais, 5 fábricas e uma ampla rede de distribuidores.
             </span>
           </p>
 
@@ -281,19 +294,48 @@ function Hero() {
             className="mt-6 w-full max-w-[360px] mx-auto h-auto"
           />
 
-          <div className="mt-6 flex flex-wrap gap-3">
-            <a href="#contato" className="btn-primary">
-              Falar com um especialista
-            </a>
-            <a href="#produtos" className="btn-ghost">
-              Conhecer Equipamentos
-            </a>
-          </div>
+          <div className="mt-6 flex flex-wrap gap-3 justify-center lg:justify-start">
+  <a href="#contato" className="btn-primary">
+    Falar com um especialista
+  </a>
+
+  <a href="#produtos" className="btn-ghost">
+    Conhecer Equipamentos
+  </a>
+</div>
+
+<div className="mt-10 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8 text-center lg:text-left">
+  <Stat n="+80" label="Países atendidos" />
+
+  <Stat n="+75 Anos" label="de experiência e inovação" />
+
+  <Stat n="Até 80%" label="De redução na necessidade de mão de obra" />
+</div>
         </div>
       </div>
     </section>
   );
 }
+
+type StatProps = {
+  n: string;
+  label: string;
+};
+
+function Stat({ n, label }: StatProps) {
+  return (
+    <div className="text-center lg:text-left">
+      <div className="text-3xl lg:text-[2.25rem] font-black leading-none text-ink">
+        {n}
+      </div>
+
+      <div className="mt-2 text-sm leading-snug text-ink-soft uppercase tracking-[0.12em]">
+        {label}
+      </div>
+    </div>
+  );
+}
+
 
 function TLDR() {
   return (
@@ -301,9 +343,7 @@ function TLDR() {
       <div className="container-x py-8 md:py-10 flex flex-col md:flex-row items-start md:items-center gap-4">
         
         <p className="text-base md:text-lg leading-relaxed">
-          A ISTOBAL oferece soluções de lavagem automática que reduzem a dependência de mão
-          de obra em até <strong className="text-white">80%</strong> e aumentam a margem de lucro por veículo lavado,
-          com presença em mais de <strong className="text-white">80 países</strong>.
+          Reduza em até <strong className="text-white">80%</strong> a dependência de mão de obra e aumente a rentabilidade da sua operação com a tecnologia de uma empresa presente em mais de <strong className="text-white">80 países</strong>.
         </p>
       </div>
     </section>
@@ -316,7 +356,7 @@ function Pains() {
       <div className="container-x">
         <div className="max-w-2xl">
           <span className="eyebrow">O problema</span>
-          <h2 className="mt-3 text-3xl md:text-4xl">Por que a lavagem manual limita seu crescimento</h2>
+          <h2 className="mt-3 text-3xl md:text-4xl">Sua operação está preparada para crescer?</h2>
         </div>
         <div className="mt-12 grid md:grid-cols-3 gap-6">
           {PAINS.map((p) => (
@@ -338,10 +378,10 @@ function Benefits() {
       <div className="container-x">
         
         {/* Header */}
-        <div className="max-w-2xl">
+        <div className="max-w-4xl">
           <span className="eyebrow">A solução</span>
           <h2 className="mt-3 text-3xl md:text-4xl font-semibold tracking-tight">
-            Uma lavagem automatizada que une eficiência, tecnologia e rentabilidade.
+            Com as soluções ISTOBAL, você automatiza a operação, aumenta a produtividade e oferece uma experiência de lavagem superior, com mais eficiência e rentabilidade.
           </h2>
         </div>
 
@@ -384,11 +424,11 @@ function VideoDemo() {
   return (
     <section className="py-20 md:py-28">
       <div className="container-x">
-        <div className="max-w-2xl mb-12">
+        <div className="max-w-3xl mb-12">
           <span className="eyebrow">Tecnologia em ação</span>
-          <h2 className="mt-3 text-3xl md:text-4xl">Veja a máquina funcionando</h2>
+          <h2 className="mt-3 text-3xl md:text-4xl">Veja como a ISTOBAL transforma eficiência em resultados.</h2>
           <p className="mt-4 text-lg text-ink-soft">
-            Confira na prática como a ISTOBAL M&apos;WASH3 PRO realiza a lavagem com precisão, velocidade e qualidade.
+            Assista ao funcionamento da M'WAShH 2 e descubra como a tecnologia ISTOBAL combina produtividade, precisão e qualidade em cada lavagem.
           </p>
         </div>
 
@@ -397,8 +437,8 @@ function VideoDemo() {
             <iframe
               width="100%"
               height="100%"
-              src="https://www.youtube.com/embed/dQw4w9WgXcQ?si=jNzFz_dL8F1K3QQK"
-              title="ISTOBAL M'WASH3 PRO em funcionamento"
+              src="https://www.youtube.com/embed/yFAX-QA2_sw?si=1IP1mxHsm7-3uZrR"
+              title="ISTOBAL M'WASH 2 em funcionamento"
               frameBorder="0"
               allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
               allowFullScreen
@@ -406,19 +446,27 @@ function VideoDemo() {
             />
           </div>
         </div>
-
+        
+<div className="container-x">
+  <div className="max-w-3xl mt-12 mb-12">
+    <h2 className="mt-3 text-3xl md:text-4xl">
+      Programas para cada necessidade do seu cliente
+    </h2>
+  </div>
+</div>
+        
         <div className="mt-10 grid md:grid-cols-3 gap-6">
           <div className="p-6 rounded-xl bg-surface border border-border">
-            <div className="text-3xl font-black text-primary mb-2">3-5 min</div>
-            <p className="text-sm text-ink-soft">Ciclo completo de lavagem por veículo</p>
+            <div className="text-3xl font-black text-primary mb-2">Programas personalizados</div>
+            <p className="text-sm text-ink-soft">Diferentes ciclos de lavagem para atender às necessidades de cada operação.</p>
           </div>
           <div className="p-6 rounded-xl bg-surface border border-border">
-            <div className="text-3xl font-black text-primary mb-2">100%</div>
-            <p className="text-sm text-ink-soft">Qualidade e padronização garantidas</p>
+            <div className="text-3xl font-black text-primary mb-2">Qualidade e padronização</div>
+            <p className="text-sm text-ink-soft">Resultados consistentes em todas as lavagens, proporcionando uma melhor experiência ao cliente.</p>
           </div>
           <div className="p-6 rounded-xl bg-surface border border-border">
-            <div className="text-3xl font-black text-primary mb-2">24/7</div>
-            <p className="text-sm text-ink-soft">Operação contínua e confiável</p>
+            <div className="text-3xl font-black text-primary mb-2">Alta disponibilidade</div>
+            <p className="text-sm text-ink-soft">Equipamentos desenvolvidos para oferecer confiabilidade, desempenho e eficiência operacional.</p>
           </div>
         </div>
       </div>
@@ -432,9 +480,9 @@ function Testimonials() {
       <div className="container-x">
         <div className="max-w-2xl mb-16">
           <span className="eyebrow">Histórias reais</span>
-          <h2 className="mt-3 text-3xl md:text-4xl">Ouça quem já transformou seu negócio</h2>
+          <h2 className="mt-3 text-3xl md:text-4xl">Quem escolheu a ISTOBAL, recomenda.</h2>
           <p className="mt-4 text-lg text-ink-soft">
-            Proprietários e gestores de operações já aumentaram sua produtividade e lucratividade com a ISTOBAL.
+            Veja como empresas de diferentes segmentos aumentaram a eficiência operacional e elevaram a experiência dos seus clientes.
           </p>
         </div>
 
