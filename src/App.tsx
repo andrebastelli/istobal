@@ -250,10 +250,14 @@ function Hero() {
             </div>
 
             <div className="mt-10 grid grid-cols-3 gap-x-10 max-w-[1100px]">
-              <Stat n="+80" label="Países atendidos" />
-              <Stat n="+75 Anos" label="de experiência e inovação" />
-              <Stat n="Até 80%" label="De redução na necessidade de mão de obra" />
-            </div>
+  <Stat n="+80" label="Países atendidos" />
+
+  <div className="-ml-10">
+    <Stat n="+75 Anos" label="de experiência e inovação" />
+  </div>
+
+  <Stat n="Até 80%" label="De redução na necessidade de mão de obra" />
+</div>
           </div>
         </div>
 
@@ -267,17 +271,17 @@ function Hero() {
 
       {/* ---------- MOBILE/TABLET: versão empilhada, sem máscara/absolute ---------- */}
       <div className="lg:hidden relative z-10 container-x py-12 md:py-16">
-        <div className="bg-surface rounded-[28px] px-6 py-10 md:px-10 md:py-12">
+        <div className="bg-surface rounded-[28px] px-6 py-10 md:px-10 md:py-12 text-center">
           <span className="block text-primary font-bold text-sm md:text-base">
             Tecnologia Global | 75 anos
           </span>
 
-          <h1 className="mt-4 text-3xl md:text-4xl font-black leading-[1.1] text-ink">
+          <h1 className="mt-4 text-3xl md:text-4xl font-black leading-[1.1] text-ink mx-auto">
             Transforme a lavagem automática em uma operação mais{" "}
             <span className="text-primary">rápida, segura e rentável.</span>
           </h1>
 
-          <p className="mt-5 text-base md:text-lg text-ink leading-relaxed">
+          <p className="mt-5 text-base md:text-lg text-ink leading-relaxed mx-auto max-w-[600px]">
             <span className="font-bold">Referência mundial em tecnologia para lavagem automotiva</span>{" "}
             <span className="font-normal text-ink-soft">
               com presença global por meio de 17 filiais internacionais, 5 fábricas e uma ampla rede de distribuidores.
@@ -299,13 +303,11 @@ function Hero() {
             </a>
           </div>
 
-          <div className="mt-10 grid grid-cols-3 w-full max-w-[820px]">
-            <Stat n="+80" label="Países atendidos" />
-            <Stat n="+75 Anos" label="de experiência e inovação" />
-            <div className="pl-10">
-              <Stat n="Até 80%" label="De redução na necessidade de mão de obra" />
-            </div>
-          </div>
+<div className="mt-10 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
+  <Stat n="+80" label="Países atendidos" />
+  <Stat n="+75 Anos" label="de experiência e inovação" />
+  <Stat n="Até 80%" label="De redução na necessidade de mão de obra" />
+</div>
         </div>
       </div>
     </section>
@@ -319,9 +321,14 @@ type StatProps = {
 
 function Stat({ n, label }: StatProps) {
   return (
-    <div>
-      <div className="text-[2.25rem] font-black">{n}</div>
-      <div>{label}</div>
+    <div className="text-center lg:text-left">
+      <div className="text-3xl lg:text-[2.25rem] font-black leading-none text-ink">
+        {n}
+      </div>
+
+      <div className="mt-2 text-sm leading-snug text-ink-soft uppercase tracking-[0.12em]">
+        {label}
+      </div>
     </div>
   );
 }
