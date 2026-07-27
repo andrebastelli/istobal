@@ -202,65 +202,65 @@ function Hero() {
       />
 
       {/* ---------- DESKTOP: composição fiel à referência ---------- */}
-<div className="hidden lg:block absolute inset-0 z-10">
-  {/* Painel claro, moldado pela máscara do recorte fornecido */}
-  <div
-    className="absolute left-0 top-0 bottom-0 w-[68%] bg-surface"
-    style={{
-      WebkitMaskImage: `url(${panelImg})`,
-      maskImage: `url(${panelImg})`,
-      WebkitMaskRepeat: "no-repeat",
-      maskRepeat: "no-repeat",
-      WebkitMaskSize: "100% 100%",
-      maskSize: "100% 100%",
-      WebkitMaskPosition: "center",
-      maskPosition: "center",
-    }}
-  />
+      <div className="hidden lg:block absolute inset-0 z-10">
+        {/* Painel claro, moldado pela máscara do recorte fornecido */}
+        <div
+          className="absolute left-[4%] top-[6%] bottom-0 w-[95%] bg-surface"
+          style={{
+            WebkitMaskImage: `url(${fundo})`,
+            maskImage: `url(${fundo})`,
+            WebkitMaskRepeat: "no-repeat",
+            maskRepeat: "no-repeat",
+            WebkitMaskSize: "100% 100%",
+            maskSize: "100% 100%",
+            WebkitMaskPosition: "center",
+            maskPosition: "center",
+          }}
+        />
 
-  {/* Texto, ancorado na área retangular do painel (evita a diagonal) */}
-  <div className="absolute left-0 top-0 bottom-0 w-[68%] flex flex-col justify-center px-14 xl:px-20">
-    <div className="max-w-[560px]">
-      <span className="block text-primary font-bold text-base">
-        Tecnologia Global | 75 anos
-      </span>
+        {/* Texto, ancorado na área retangular do painel (evita a diagonal) */}
+        <div className="absolute left-[4%] top-[6%] bottom-[6%] w-[70%] flex flex-col justify-center px-14 xl:px-16">
+          <div className="max-w-[520px]">
+            <span className="block text-primary font-bold text-base">
+              Tecnologia Global | 75 anos
+            </span>
 
-      <h1 className="mt-4 text-4xl xl:text-[3.2rem] font-black leading-[1.08] text-ink">
-        Transforme a lavagem automática em uma operação mais{" "}
-        <span className="text-primary">rápida, segura e rentável.</span>
-      </h1>
+            <h1 className="mt-4 text-4xl xl:text-[3.2rem] font-black leading-[1.08] text-ink">
+              Transforme a lavagem automática em uma operação mais{" "}
+              <span className="text-primary">rápida, segura e rentável.</span>
+            </h1>
 
-      <p className="mt-6 text-lg text-ink leading-relaxed">
-        <span className="font-bold">Tecnologia presente em mais de 80 países</span>{" "}
-        <span className="font-normal text-ink-soft">
-          para aumentar a eficiência operacional e melhorar a experiência dos seus clientes.
-        </span>
-      </p>
+            <p className="mt-6 text-lg text-ink leading-relaxed">
+              <span className="font-bold">Tecnologia presente em mais de 80 países</span>{" "}
+              <span className="font-normal text-ink-soft">
+                para aumentar a eficiência operacional e melhorar a experiência dos seus clientes.
+              </span>
+            </p>
 
-      <div className="mt-8 flex flex-wrap gap-3">
-        <a href="#contato" className="btn-primary">
-          Falar com um especialista
-        </a>
-        <a href="#produtos" className="btn-ghost">
-          Conhecer Equipamentos
-        </a>
+            <div className="mt-8 flex flex-wrap gap-3">
+              <a href="#contato" className="btn-primary">
+                Falar com um especialista
+              </a>
+              <a href="#produtos" className="btn-ghost">
+                Conhecer Equipamentos
+              </a>
+            </div>
+
+            <div className="mt-10 flex flex-wrap gap-8 text-sm text-ink-soft">
+              <Stat n="+80" label="Países atendidos" />
+              <Stat n="75" label="Anos de experiência" />
+              <Stat n="-80%" label="Mão de obra" />
+            </div>
+          </div>
+        </div>
+
+        {/* Máquina, sobreposta à diagonal do painel — por cima de tudo */}
+        <img
+          src={maquina}
+          alt="Equipamento ISTOBAL de lavagem automática"
+          className="absolute z-20 left-[47%] top-[20%] w-[42%] h-auto drop-shadow-2xl select-none pointer-events-none"
+        />
       </div>
-
-      <div className="mt-10 flex flex-wrap gap-8 text-sm text-ink-soft">
-        <Stat n="+80" label="Países atendidos" />
-        <Stat n="75" label="Anos de experiência" />
-        <Stat n="-80%" label="Mão de obra" />
-      </div>
-    </div>
-  </div>
-
-  {/* Máquina, sobreposta à diagonal do painel — por cima de tudo */}
-  <img
-    src={machineImg}
-    alt="Equipamento ISTOBAL de lavagem automática"
-    className="absolute z-20 left-[38%] top-[22%] w-[48%] h-auto drop-shadow-2xl select-none pointer-events-none"
-  />
-</div>
 
       {/* ---------- MOBILE/TABLET: versão empilhada, sem máscara/absolute ---------- */}
       <div className="lg:hidden relative z-10 container-x py-12 md:py-16">
