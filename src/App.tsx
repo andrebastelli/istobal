@@ -424,8 +424,8 @@ function VideoDemo() {
     <section className="py-20 md:py-28">
       <div className="container-x">
         <div className="max-w-3xl mb-12">
-          <span className="eyebrow">Tecnologia em ação</span>
-          <h2 className="mt-3 text-3xl md:text-4xl">Veja como a ISTOBAL transforma eficiência em resultados.</h2>
+          <span className="eyebrow">Quem escolheu a Istobal, conta a experiência</span>
+          <h2 className="mt-3 text-3xl md:text-4xl"> Veja como empresas de diferentes segmentos aumentaram a eficiência operacional e elevaram a experiência dos seus clientes.</h2>
           <p className="mt-4 text-lg text-ink-soft">
             Assista ao funcionamento da M'WAShH 2 e descubra como a tecnologia ISTOBAL combina produtividade, precisão e qualidade em cada lavagem.
           </p>
@@ -733,8 +733,8 @@ function FAQSection() {
   return (
     <section id="faq" className="py-20 md:py-28 bg-surface">
       <div className="container-x max-w-3xl">
-        <span className="eyebrow">Perguntas frequentes</span>
-        <h2 className="mt-3 text-3xl md:text-4xl">Tudo o que investidores perguntam</h2>
+        <span className="eyebrow"></span>
+        <h2 className="mt-3 text-3xl md:text-4xl">Perguntas Frequentes</h2>
         <div className="mt-10 divide-y divide-border rounded-xl bg-white border border-border">
           {FAQ.map((item, i) => (
             <details key={i} className="group p-6">
