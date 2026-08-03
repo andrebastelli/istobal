@@ -164,7 +164,7 @@ function Header() {
         <nav className="hidden md:flex items-center gap-8 text-sm font-medium text-ink-soft">
           <a href="#beneficios" className="hover:text-ink transition-colors">Benefícios</a>
           <a href="#tecnologia" className="hover:text-ink transition-colors">Tecnologia</a>
-          <a href="#suporte" className="hover:text-ink transition-colors">Suporte</a>
+          <a href="#suporte" className="hover:text-ink transition-colors">Comparativo</a>
           <a href="#faq" className="hover:text-ink transition-colors">FAQ</a>
         </nav>
         <a href="#contato" className="btn-primary hidden md:inline-flex text-sm">Falar com Especialista</a>
@@ -179,7 +179,7 @@ function Header() {
           <div className="container-x py-4 flex flex-col gap-4">
             <a href="#beneficios" onClick={() => setOpen(false)}>Benefícios</a>
             <a href="#tecnologia" onClick={() => setOpen(false)}>Tecnologia</a>
-            <a href="#suporte" onClick={() => setOpen(false)}>Suporte</a>
+            <a href="#suporte" onClick={() => setOpen(false)}>Comparativo</a>
             <a href="#faq" onClick={() => setOpen(false)}>FAQ</a>
             <a href="#contato" className="btn-primary" onClick={() => setOpen(false)}>Falar com Especialista</a>
           </div>
@@ -239,7 +239,7 @@ function Hero() {
               <a href="#contato" className="btn-primary">
                 Falar com um especialista
               </a>
-              <a href="#produtos" className="btn-ghost">
+              <a href="#contato" className="btn-ghost">
                 Conhecer Equipamentos
               </a>
             </div>
@@ -457,7 +457,7 @@ function Benefits() {
 
 function VideoDemo() {
   return (
-    <section className="py-20 md:py-28">
+    <section id="tecnologia" className="py-20 md:py-28">
       <div className="container-x">
         <div className="max-w-3xl mb-12">
           <span className="eyebrow">Quem escolheu a Istobal, conta a experiência</span>
@@ -560,7 +560,7 @@ function Testimonials() {
 
 function HowItWorks() {
   return (
-    <section id="tecnologia" className="py-20 md:py-28">
+    <section className="py-20 md:py-28">
       <div className="container-x">
         <div className="max-w-2xl">
           <span className="eyebrow">Como funciona</span>
@@ -1040,7 +1040,7 @@ function Footer() {
           <ul className="space-y-2 text-sm">
             <li><a href="#beneficios" className="hover:text-white">Benefícios</a></li>
             <li><a href="#tecnologia" className="hover:text-white">Tecnologia</a></li>
-            <li><a href="#suporte" className="hover:text-white">Suporte</a></li>
+            <li><a href="#suporte" className="hover:text-white">Comparativo</a></li>
             <li><a href="#faq" className="hover:text-white">FAQ</a></li>
             <li><a href="#contato" className="hover:text-white">Contato</a></li>
           </ul>
