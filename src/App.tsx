@@ -131,7 +131,7 @@ export default function App() {
       <main id="conteudo">
         <Hero />
         <TLDR />
-        <Pains />
+        {/* <Pains /> */}
         <Benefits />
         <VideoDemo />
         <Testimonials />
