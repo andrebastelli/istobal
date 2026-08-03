@@ -131,14 +131,14 @@ export default function App() {
       <main id="conteudo">
         <Hero />
         <TLDR />
-        <Pains />
+        {/* <Pains /> */}
         <Benefits />
         <VideoDemo />
-        <Testimonials />
-        <HowItWorks />
-        <FeaturedProducts />
+        {/* <Testimonials /> */}
+        {/* <HowItWorks /> */}
+        {/* <FeaturedProducts /> */}
         <Compare />
-        <Differentials />
+        {/* <Differentials /> */}
         <FAQSection />
         <ContactForm />
       </main>
@@ -164,7 +164,7 @@ function Header() {
         <nav className="hidden md:flex items-center gap-8 text-sm font-medium text-ink-soft">
           <a href="#beneficios" className="hover:text-ink transition-colors">Benefícios</a>
           <a href="#tecnologia" className="hover:text-ink transition-colors">Tecnologia</a>
-          <a href="#suporte" className="hover:text-ink transition-colors">Suporte</a>
+          <a href="#suporte" className="hover:text-ink transition-colors">Comparativo</a>
           <a href="#faq" className="hover:text-ink transition-colors">FAQ</a>
         </nav>
         <a href="#contato" className="btn-primary hidden md:inline-flex text-sm">Falar com Especialista</a>
@@ -179,7 +179,7 @@ function Header() {
           <div className="container-x py-4 flex flex-col gap-4">
             <a href="#beneficios" onClick={() => setOpen(false)}>Benefícios</a>
             <a href="#tecnologia" onClick={() => setOpen(false)}>Tecnologia</a>
-            <a href="#suporte" onClick={() => setOpen(false)}>Suporte</a>
+            <a href="#suporte" onClick={() => setOpen(false)}>Comparativo</a>
             <a href="#faq" onClick={() => setOpen(false)}>FAQ</a>
             <a href="#contato" className="btn-primary" onClick={() => setOpen(false)}>Falar com Especialista</a>
           </div>
@@ -220,10 +220,6 @@ function Hero() {
         {/* Texto, ancorado na área retangular do painel (evita a diagonal) */}
         <div className="absolute left-[4%] top-[10%] bottom-[6%] w-[70%] flex flex-col justify-center px-14 xl:px-16">
           <div className="max-w-[1200px]">
-            <span className="block text-primary font-bold text-base">
-              Tecnologia Global | 75 anos
-            </span>
-
             <h1 className="mt-4 text-4xl xl:text-[3.2rem] font-black leading-[1.08] text-ink max-w-[600px]">
               Transforme a lavagem automática em uma operação mais{" "}
               <span className="text-primary">rápida, segura e rentável.</span>
@@ -243,20 +239,11 @@ function Hero() {
               <a href="#contato" className="btn-primary">
                 Falar com um especialista
               </a>
-              <a href="#produtos" className="btn-ghost">
+              <a href="#contato" className="btn-ghost">
                 Conhecer Equipamentos
               </a>
             </div>
 
-            <div className="mt-10 grid grid-cols-3 gap-x-10 max-w-[1100px]">
-  <Stat n="+80" label="Países atendidos" />
-
-  <div className="-ml-10">
-    <Stat n="+75 Anos" label="de experiência e inovação" />
-  </div>
-
-  <Stat n="Até 80%" label="De redução na necessidade de mão de obra" />
-</div>
           </div>
         </div>
 
@@ -271,10 +258,6 @@ function Hero() {
       {/* ---------- MOBILE/TABLET: versão empilhada, sem máscara/absolute ---------- */}
       <div className="lg:hidden relative z-10 container-x py-12 md:py-16">
         <div className="bg-surface rounded-[28px] px-6 py-10 md:px-10 md:py-12">
-          <span className="block text-primary font-bold text-sm md:text-base">
-            Tecnologia Global | 75 anos
-          </span>
-
           <h1 className="mt-4 text-3xl md:text-4xl font-black leading-[1.1] text-ink">
             Transforme a lavagem automática em uma operação mais{" "}
             <span className="text-primary">rápida, segura e rentável.</span>
@@ -303,13 +286,6 @@ function Hero() {
             </a>
           </div>
 
-          <div className="mt-10 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8 text-center lg:text-left">
-            <Stat n="+80" label="Países atendidos" />
-
-            <Stat n="+75 Anos" label="de experiência e inovação" />
-
-            <Stat n="Até 80%" label="De redução na necessidade de mão de obra" />
-          </div>
         </div>
       </div>
     </section>
@@ -331,6 +307,66 @@ function Stat({ n, label }: StatProps) {
       <div className="mt-2 text-sm leading-snug text-ink-soft uppercase tracking-[0.12em]">
         {label}
       </div>
+    </div>
+  );
+}
+
+type CountUpStatProps = {
+  target: number;
+  prefix?: string;
+  suffix?: string;
+  label: string;
+};
+
+function CountUpStat({ target, prefix = "", suffix = "", label }: CountUpStatProps) {
+  const [value, setValue] = useState(0);
+  const [started, setStarted] = useState(false);
+  const [node, setNode] = useState<HTMLDivElement | null>(null);
+
+  useEffect(() => {
+    if (!node) return;
+    const observer = new IntersectionObserver(
+      (entries) => {
+        if (entries[0].isIntersecting) {
+          setStarted(true);
+          observer.disconnect();
+        }
+      },
+      { threshold: 0.4 }
+    );
+    observer.observe(node);
+    return () => observer.disconnect();
+  }, [node]);
+
+  useEffect(() => {
+    if (!started) return;
+    const duration = 1200;
+    const start = performance.now();
+    let frame: number;
+
+    const tick = (now: number) => {
+      const progress = Math.min((now - start) / duration, 1);
+      const eased = 1 - Math.pow(1 - progress, 3);
+      setValue(Math.round(eased * target));
+      if (progress < 1) {
+        frame = requestAnimationFrame(tick);
+      }
+    };
+
+    frame = requestAnimationFrame(tick);
+    return () => cancelAnimationFrame(frame);
+  }, [started, target]);
+
+  return (
+    <div ref={setNode} className="text-center">
+      <div className="text-3xl md:text-4xl font-black leading-none text-primary whitespace-nowrap tabular-nums">
+        {prefix}
+        {value.toLocaleString("pt-BR")}
+        {suffix}
+      </div>
+      <p className="mt-3 text-base text-ink-soft leading-snug max-w-[220px] mx-auto">
+        {label}
+      </p>
     </div>
   );
 }
@@ -378,7 +414,7 @@ function Benefits() {
         
         {/* Header */}
         <div className="max-w-4xl">
-          <span className="eyebrow">A solução</span>
+          <span className="eyebrow">Benefícios</span>
           <h2 className="mt-3 text-3xl md:text-4xl font-semibold tracking-tight">
             Com as soluções ISTOBAL, você automatiza a operação, aumenta a produtividade e oferece uma experiência de lavagem superior, com mais eficiência e rentabilidade.
           </h2>
@@ -421,7 +457,7 @@ function Benefits() {
 
 function VideoDemo() {
   return (
-    <section className="py-20 md:py-28">
+    <section id="tecnologia" className="py-20 md:py-28">
       <div className="container-x">
         <div className="max-w-3xl mb-12">
           <span className="eyebrow">Quem escolheu a Istobal, conta a experiência</span>
@@ -445,28 +481,26 @@ function VideoDemo() {
             />
           </div>
         </div>
-        
-<div className="container-x">
-  <div className="max-w-3xl mt-12 mb-12">
-    <h2 className="mt-3 text-3xl md:text-4xl">
-      Programas para cada necessidade do seu cliente
-    </h2>
-  </div>
-</div>
-        
-        <div className="mt-10 grid md:grid-cols-3 gap-6">
-          <div className="p-6 rounded-xl bg-surface border border-border">
-            <div className="text-3xl font-black text-primary mb-2">Programas personalizados</div>
-            <p className="text-sm text-ink-soft">Diferentes ciclos de lavagem para atender às necessidades de cada operação.</p>
-          </div>
-          <div className="p-6 rounded-xl bg-surface border border-border">
-            <div className="text-3xl font-black text-primary mb-2">Qualidade e padronização</div>
-            <p className="text-sm text-ink-soft">Resultados consistentes em todas as lavagens, proporcionando uma melhor experiência ao cliente.</p>
-          </div>
-          <div className="p-6 rounded-xl bg-surface border border-border">
-            <div className="text-3xl font-black text-primary mb-2">Alta disponibilidade</div>
-            <p className="text-sm text-ink-soft">Equipamentos desenvolvidos para oferecer confiabilidade, desempenho e eficiência operacional.</p>
-          </div>
+
+        <div className="mt-16 grid grid-cols-1 md:grid-cols-3 gap-10 md:gap-6">
+          <CountUpStat
+            target={75}
+            prefix="+"
+            suffix=" anos"
+            label="De experiência, tecnologia e inovação."
+          />
+          <CountUpStat
+            target={700}
+            prefix="+"
+            suffix=" máquinas"
+            label="Instaladas em todo o território brasileiro."
+          />
+          <CountUpStat
+            target={80}
+            prefix="+"
+            suffix=" países"
+            label="Com soluções Istobal presentes ao redor do mundo."
+          />
         </div>
       </div>
     </section>
@@ -526,7 +560,7 @@ function Testimonials() {
 
 function HowItWorks() {
   return (
-    <section id="tecnologia" className="py-20 md:py-28">
+    <section className="py-20 md:py-28">
       <div className="container-x">
         <div className="max-w-2xl">
           <span className="eyebrow">Como funciona</span>
@@ -1006,7 +1040,7 @@ function Footer() {
           <ul className="space-y-2 text-sm">
             <li><a href="#beneficios" className="hover:text-white">Benefícios</a></li>
             <li><a href="#tecnologia" className="hover:text-white">Tecnologia</a></li>
-            <li><a href="#suporte" className="hover:text-white">Suporte</a></li>
+            <li><a href="#suporte" className="hover:text-white">Comparativo</a></li>
             <li><a href="#faq" className="hover:text-white">FAQ</a></li>
             <li><a href="#contato" className="hover:text-white">Contato</a></li>
           </ul>
@@ -1024,8 +1058,7 @@ function Footer() {
         </div>
       </div>
       <div className="container-x mt-10 pt-6 border-t border-white/10 text-xs flex justify-between">
-        <span>© {new Date().getFullYear()} ISTOBAL. Todos os direitos reservados.</span>
-        <span>CNPJ · Política de Privacidade</span>
+          <span>© {new Date().getFullYear()} ISTOBAL. Todos os direitos reservados.</span>
       </div>
     </footer>
   );
