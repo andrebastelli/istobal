@@ -1058,8 +1058,7 @@ function Footer() {
         </div>
       </div>
       <div className="container-x mt-10 pt-6 border-t border-white/10 text-xs flex justify-between">
-        <span>© {new Date().getFullYear()} ISTOBAL. Todos os direitos reservados.</span>
-        <span>CNPJ · Política de Privacidade</span>
+          <span>© {new Date().getFullYear()} ISTOBAL. Todos os direitos reservados.</span>
       </div>
     </footer>
   );
