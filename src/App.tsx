@@ -359,7 +359,7 @@ function CountUpStat({ target, prefix = "", suffix = "", label }: CountUpStatPro
 
   return (
     <div ref={setNode} className="text-center">
-      <div className="text-4xl md:text-5xl font-black leading-none text-primary">
+      <div className="text-3xl md:text-4xl font-black leading-none text-primary whitespace-nowrap tabular-nums">
         {prefix}
         {value.toLocaleString("pt-BR")}
         {suffix}
