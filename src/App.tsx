@@ -460,10 +460,9 @@ function VideoDemo() {
     <section id="tecnologia" className="py-20 md:py-28">
       <div className="container-x">
         <div className="max-w-3xl mb-12">
-          <span className="eyebrow">Quem escolheu a Istobal, conta a experiência</span>
-          <h2 className="mt-3 text-3xl md:text-4xl"> Veja como empresas de diferentes segmentos aumentaram a eficiência operacional e elevaram a experiência dos seus clientes.</h2>
+          <h2 className="text-3xl md:text-4xl">Quem escolheu a Istobal, conta a experiência</h2>
           <p className="mt-4 text-lg text-ink-soft">
-            Assista ao funcionamento da M'WAShH 2 e descubra como a tecnologia ISTOBAL combina produtividade, precisão e qualidade em cada lavagem.
+            Veja como empresas de diferentes segmentos aumentaram a eficiência operacional e elevaram a experiência dos seus clientes.
           </p>
         </div>
 
