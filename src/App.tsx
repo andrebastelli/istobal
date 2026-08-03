@@ -378,7 +378,7 @@ function Benefits() {
         
         {/* Header */}
         <div className="max-w-4xl">
-          <span className="eyebrow">A solução</span>
+          <span className="eyebrow">Benefícios</span>
           <h2 className="mt-3 text-3xl md:text-4xl font-semibold tracking-tight">
             Com as soluções ISTOBAL, você automatiza a operação, aumenta a produtividade e oferece uma experiência de lavagem superior, com mais eficiência e rentabilidade.
           </h2>
