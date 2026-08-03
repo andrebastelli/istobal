@@ -733,7 +733,7 @@ function FAQSection() {
   return (
     <section id="faq" className="py-20 md:py-28 bg-surface">
       <div className="container-x max-w-3xl">
-        <span className="eyebrow">Perguntas frequentes</span>
+        <span className="eyebrow"></span>
         <h2 className="mt-3 text-3xl md:text-4xl">Perguntas Frequentes</h2>
         <div className="mt-10 divide-y divide-border rounded-xl bg-white border border-border">
           {FAQ.map((item, i) => (
