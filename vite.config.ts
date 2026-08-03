@@ -9,6 +9,6 @@ export default defineConfig({
     },
   },
   server: {
-    allowedHosts: ['sb-2hwco2i7lj7h.vercel.run'],
+    allowedHosts: ['.vercel.run'],
   },
 })
