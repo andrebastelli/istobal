@@ -471,8 +471,8 @@ function VideoDemo() {
             <iframe
               width="100%"
               height="100%"
-              src="https://www.youtube.com/embed/yFAX-QA2_sw?si=1IP1mxHsm7-3uZrR"
-              title="ISTOBAL M'WASH 2 em funcionamento"
+              src="https://www.youtube.com/embed/xsEtOo4xS00"
+              title="ISTOBAL em funcionamento"
               frameBorder="0"
               allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
               allowFullScreen
